@@ -1,9 +1,11 @@
 import os
 
-import youtube_transcript_api
+
 from flask import Flask, render_template
 
 try:
+    import youtube_transcript_api
+
     from youtubesearchpython import VideosSearch
     from ytmusicapi import YTMusic
     from pytube import Playlist
