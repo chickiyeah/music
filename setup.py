@@ -1,7 +1,10 @@
 import os
 
-
-from flask import Flask, render_template
+try:
+ from flask import Flask, render_template
+except ModuleNotFoundError:
+ os.system('pip install flask')
+ os.system('pip install flask[async]')
 
 try:
     import youtube_transcript_api
