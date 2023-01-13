@@ -2,6 +2,7 @@ import os
 
 try:
  from flask import Flask, render_template
+ app = Flask(__name__)
 except ModuleNotFoundError:
  os.system('pip install flask')
  os.system('pip install flask[async]')
@@ -14,6 +15,7 @@ try:
     from pytube import Playlist
     from art import *
     from youtube_transcript_api import YouTubeTranscriptApi
+ ytapimusic = YTMusic()
 except ModuleNotFoundError:
     os.system('pip install youtube-search-python')
     os.system('pip install ytmusicapi')
@@ -24,8 +26,6 @@ except ModuleNotFoundError:
 import json
 import urllib
 
-app = Flask(__name__)
-ytapimusic = YTMusic()
 
 
 def get_playlist(playlists):
