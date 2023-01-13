@@ -5,7 +5,29 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+    <!-- 제이쿼리 -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+
     <script>
+
+        function requestCC(id) {
+            $.ajax({
+                type: "POST",
+                url: "/api/lyrcis",
+                data: {
+                    "video_id": id
+                },
+                success: function (response) {
+                    console.log(response)
+                    response.forEach(function (lyrcis) {
+                        let lyr = `<li>${lyrcis.text}</li>`
+                        $("#CC").append(lyr)
+                    })
+                }
+            })
+        }
+
         let playingdata
         function youtube(id) {
             var vid = id,
@@ -91,6 +113,10 @@
     <label id="title"></label>
     <audio id="youtube" autoplay controls loop></audio>
 <button onclick="youtube('sVydSseSOCQ')">오르막길</button>
+<button onclick="requestCC('8J6SMoVd5BY')">가사 요청</button>
+<ul id="CC">
+
+</ul>
 </body>
 
 </html>

@@ -1,12 +1,12 @@
 import os
 app=""
 try:
-    from flask import Flask, render_template
+    from flask import Flask, render_template, request
     app = Flask(__name__)
 except ModuleNotFoundError:
     os.system('pip install flask')
     os.system('pip install flask[async]')
-    from flask import Flask, render_template
+    from flask import Flask, render_template, request
     app = Flask(__name__)
 
 try:
@@ -73,32 +73,32 @@ def hello_world():  # put application's code here
     return render_template("test.html")
 
 
-@app.route('/rank')
+@app.route('/api/top100')
 def get_top_100():
     playlist = ['https://www.youtube.com/playlist?list=PL4fGSI1pDJn6jXS_Tv_N9B8Z0HTRVJE0m']
     pl_urls = get_playlist(playlist)
     return pl_urls
 
-@app.route('/new')
+@app.route('/api/new100')
 def get_new_song():
     playlist = ['https://www.youtube.com/playlist?list=RDCLAK5uy_mVBAam6Saaqa_DeJRxGkawqqxwPTBrGXM']
     pl_urls = get_playlist(playlist)
     return pl_urls
 
-@app.route('/lyrcis')
+@app.route('/api/lyrcis', methods=['POST'])
 def get_lyrcis():
-    id = "3GWscde8rM8"
-    cclist = YouTubeTranscriptApi.list_transcripts(id)
+    video_id = request.form['video_id']
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
     try:
         cclist.find_manually_created_transcript(['ko'])
-        cc = YouTubeTranscriptApi.get_transcript(id, ['ko'])
+        cc = YouTubeTranscriptApi.get_transcript(video_id, ['ko'])
         lyrcis = []
         for i in cc:
-            lyrcis.append(i["text"])
+            lyrcis.append(i)
 
         return lyrcis
     except youtube_transcript_api._errors.NoTranscriptFound:
-        return ['등록된 가사가 없습니다.']
+        return [{'duration':'infinity','start':'0','text':'등록된 가사가 없습니다.'}]
 
 
 
