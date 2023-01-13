@@ -1,5 +1,5 @@
 import os
-
+app = ""
 try:
     from flask import Flask, render_template
     app = Flask(__name__)
