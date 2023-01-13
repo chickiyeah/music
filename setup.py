@@ -1,11 +1,13 @@
 import os
-app = ""
+app=""
 try:
     from flask import Flask, render_template
     app = Flask(__name__)
 except ModuleNotFoundError:
     os.system('pip install flask')
     os.system('pip install flask[async]')
+    from flask import Flask, render_template
+    app = Flask(__name__)
 
 try:
     import youtube_transcript_api
