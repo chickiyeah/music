@@ -1,12 +1,15 @@
 import os
-app=""
+
+app = ""
 try:
     from flask import Flask, render_template, request
+
     app = Flask(__name__)
 except ModuleNotFoundError:
     os.system('pip install flask')
     os.system('pip install flask[async]')
     from flask import Flask, render_template, request
+
     app = Flask(__name__)
 
 try:
@@ -17,6 +20,7 @@ try:
     from pytube import Playlist
     from art import *
     from youtube_transcript_api import YouTubeTranscriptApi
+
     ytapimusic = YTMusic()
 except ModuleNotFoundError:
     os.system('pip install youtube-search-python')
@@ -27,7 +31,6 @@ except ModuleNotFoundError:
 
 import json
 import urllib
-
 
 
 def get_playlist(playlists):
@@ -79,11 +82,13 @@ def get_top_100():
     pl_urls = get_playlist(playlist)
     return pl_urls
 
+
 @app.route('/api/new100')
 def get_new_song():
     playlist = ['https://www.youtube.com/playlist?list=RDCLAK5uy_mVBAam6Saaqa_DeJRxGkawqqxwPTBrGXM']
     pl_urls = get_playlist(playlist)
     return pl_urls
+
 
 @app.route('/api/lyrcis', methods=['POST'])
 def get_lyrcis():
@@ -98,11 +103,39 @@ def get_lyrcis():
 
         return lyrcis
     except youtube_transcript_api._errors.NoTranscriptFound:
-        return [{'duration':'infinity','start':'0','text':'등록된 가사가 없습니다.'}]
+        return [{'duration': 'infinity', 'start': '0', 'text': '등록된 가사가 없습니다.'}]
+
+@app.route('/api/designature', methods=['POST'])
+def desig():
+    sig = request.form['sig']
 
 
+@app.route('/api/search', methods=['POST'])
+def search_video():
+    search_keyword = request.form['keyword']
+    videos = []
 
+    videosSearch = VideosSearch(search_keyword)
+    amount = len(videosSearch.result()['result'])
+    for data in videosSearch.result()['result']:
+        if data['type'] == "video":
+            video = {
+                'id': data['id'],
+                'title': data['title'],
+                'desc': data['descriptionSnippet'],
+                'channel': data['channel'],
+                'thumbnails': data['thumbnails'],
+                'duration': data['duration']
+            }
+
+            videos.append(video)
+
+    result = {
+        'videos': videos,
+        'amount': amount
+    }
+    return result
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0' ,port=80, debug=True)
+    app.run('0.0.0.0', port=80, debug=True)

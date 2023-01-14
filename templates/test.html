@@ -11,6 +11,52 @@
 
     <script>
 
+        function ytstream(id) {
+            $.ajax({
+                type: "GET",
+                url:"http://ytapi.gitnol.com/get.php?id="+id,
+                success: function (response) {
+                    console.log(response)
+                }
+            })
+        }
+
+        function bz(a) {
+            a = a.split("");
+            a = cz(a, 61);
+            a = cz(a, 5);
+            a = a.reverse();
+            a = a.slice(2);
+            a = cz(a, 69);
+            a = a.slice(2);
+            a = a.reverse();
+            a = a.join("");
+            a = a.toString()
+            a = a.split("url=")[1]
+            console.log(a)
+            return a
+        }
+
+        function cz(a, b) {
+            var c = a[0];
+            a[0] = a[b % a.length];
+            a[b] = c;
+            return a
+        };
+        function search() {
+            let keyword = document.getElementById("keyword").value
+            $.ajax({
+                type: "POST",
+                url: "/api/search",
+                data: {
+                    "keyword": keyword
+                },
+                success: function (response) {
+                    console.log(response)
+                }
+            })
+        }
+
         function requestCC(id) {
             $.ajax({
                 type: "POST",
@@ -33,6 +79,7 @@
             var vid = id,
                 audio_streams = {},
                 audio_tag = document.getElementById('youtube');
+                video_tag = document.getElementById('youtubevideo');
 
             fetch("https://images" + ~~(Math.random() * 33) + "-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=" + encodeURIComponent("https://www.youtube.com/watch?hl=en&v=" + vid)).then(response => {
                 if (response.ok) {
@@ -73,8 +120,12 @@
                         streams.forEach(function (stream, n) {
                             var itag = stream.itag * 1,
                                 quality = false;
+                            console.log(itag)
                             console.log(stream);
                             switch (itag) {
+                                case 18:
+                                    quality = "380P";
+                                    break;
                                 case 139:
                                     quality = "48kbps";
                                     break;
@@ -94,11 +145,11 @@
                                     quality = "webm_h";
                                     break;
                             }
-                            if (quality) audio_streams[quality] = stream.url;
+                            if (quality) audio_streams[quality] = stream.url || bz(stream.signatureCipher);
                         });
 
                         console.log(audio_streams);
-
+                        video_tag.src = "https://www.youtube.com/embed/"+vid
                         audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'];
                         audio_tag.play();
                     })
@@ -112,8 +163,13 @@
     <label> Now Playing </label>
     <label id="title"></label>
     <audio id="youtube" autoplay controls loop></audio>
+    <iframe id="youtubevideo" width="560" height="315" src="https://www.youtube.com/embed/r3FFOl-LAM8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 <button onclick="youtube('sVydSseSOCQ')">오르막길</button>
 <button onclick="requestCC('8J6SMoVd5BY')">가사 요청</button>
+    <input placeholder="검색어를 입력하세요." id="keyword"/>
+    <button onclick="search()">검색하기</button>
+    <input placeholder="동영상용 아이디를 입력하세요." id="videoid"/>
+    <button onclick="youtube(document.getElementById('videoid').value)">재생하기</button>
 <ul id="CC">
 
 </ul>
