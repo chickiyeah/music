@@ -1,4 +1,5 @@
 import os
+import subprocess
 
 app = ""
 try:
@@ -102,12 +103,33 @@ def get_lyrcis():
             lyrcis.append(i)
 
         return lyrcis
-    except youtube_transcript_api._errors.NoTranscriptFound:
+    except (youtube_transcript_api.NoTranscriptFound, youtube_transcript_api._errors.TranscriptsDisabled):
+        return [{'duration': 'infinity', 'start': '0', 'text': '등록된 가사가 없습니다.'}]
+    except :
         return [{'duration': 'infinity', 'start': '0', 'text': '등록된 가사가 없습니다.'}]
 
 @app.route('/api/designature', methods=['POST'])
 def desig():
     sig = request.form['sig']
+
+@app.route('/api/getsong', methods=['POST'])
+def getsong():
+    vid = request.form['vid']
+    uri = "https://www.youtube.com/watch?v="+vid
+    callres = subprocess.run(["python","youtube.py","-u",uri], stdout=subprocess.PIPE, text=True)
+    res = str(callres.stdout).replace("횞","x").split("\n\n")
+    for data in res:
+        if data != "":
+            rawdata = data
+            type = rawdata.split(";")[0].split(" ")[1]
+            if type == "audio/webm":
+                audiodata = rawdata.split("; ")[1]
+                quality = audiodata.split("Quality ")[1].split(",")[0]
+                if quality == "AUDIO_QUALITY_MEDIUM":
+                    return audiodata.split("\n")[1]
+
+    return None
+
 
 
 @app.route('/api/search', methods=['POST'])
