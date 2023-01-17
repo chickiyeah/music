@@ -213,11 +213,7 @@
 
                         console.log(audio_streams);
                         video_tag.src = "https://www.youtube.com/embed/"+vid
-                        if(audio_streams['128kbps'] == undefined){
-                           audio_tag.src = newgetsong(vid)
-                        }else {
-                            audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'];
-                        }
+                        audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'] || newgetsong(vid);
                         audio_tag.play();
                         requestCC(vid);
                     })

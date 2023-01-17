@@ -1,6 +1,6 @@
 import os
 import subprocess
-
+import uyts
 import requests
 
 app = ""
@@ -24,7 +24,6 @@ try:
     from art import *
     from youtube_transcript_api import YouTubeTranscriptApi
 
-    ytapimusic = YTMusic()
 except ModuleNotFoundError:
     os.system('pip install youtube-search-python')
     os.system('pip install ytmusicapi')
@@ -139,7 +138,14 @@ def search_video():
     search_keyword = request.form['keyword']
     videos = []
 
-    videosSearch = VideosSearch(search_keyword)
+    search = uyts.Search(search_keyword, language="ko-kr", minResults=50)
+    res = []
+    for result in search.results:
+        if result.resultType == "video":
+            res.append(result.ToJSON())
+
+    return res
+"""    videosSearch = VideosSearch(search_keyword, region= 'KR')
     amount = len(videosSearch.result()['result'])
     for data in videosSearch.result()['result']:
         if data['type'] == "video":
@@ -158,7 +164,8 @@ def search_video():
         'videos': videos,
         'amount': amount
     }
-    return result
+    """
+
 
 
 if __name__ == '__main__':
