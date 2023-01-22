@@ -144,7 +144,14 @@ eruda.init({
                     audio_tag.src = response;
                     audio_tag.play().catch(function(err) {
                     window.open(response)
-                    axios.get(response, {withCredentials:true}).then(function(res){console.log(res)})
+                        $.ajax({
+                            type: "GET",
+                            url:response,
+                            dataType: 'jsonp',
+                            success: function(data, status, xhr) {
+                                console.log(data)
+                            }
+                        })
                     })
                     video_tag.src = "https://www.youtube.com/embed/"+vid                        
                 }
