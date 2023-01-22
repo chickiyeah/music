@@ -40,7 +40,7 @@ try:
 
 except ModuleNotFoundError:
 
- os.system('pip install unlimited-youtube-search')
+    os.system('pip install unlimited-youtube-search')
 
     os.system('pip install youtube-search-python')
 
