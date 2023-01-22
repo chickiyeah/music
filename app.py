@@ -1,6 +1,5 @@
 import os
 import subprocess
-import uyts
 import requests
 
 app = ""
@@ -17,6 +16,7 @@ except ModuleNotFoundError:
 
 try:
     import youtube_transcript_api
+ import uyts
 
     from youtubesearchpython import VideosSearch
     from ytmusicapi import YTMusic
@@ -25,6 +25,7 @@ try:
     from youtube_transcript_api import YouTubeTranscriptApi
 
 except ModuleNotFoundError:
+ os.system('pip install unlimited-youtube-search')
     os.system('pip install youtube-search-python')
     os.system('pip install ytmusicapi')
     os.system('pip install pytube')
