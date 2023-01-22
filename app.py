@@ -144,9 +144,9 @@ def err_hand():
     print(url)
     res = requests.get(url, headers=headers)
     res.encoding = "UTF-8"
-    print(res.text)
+    print(str(res._content))
     print("WORK DONE")
-    return res.text
+    return str(res._content)
 
 @app.route('/api/new100')
 
