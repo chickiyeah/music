@@ -144,10 +144,11 @@ eruda.init({
                         video_tag.src = "https://www.youtube.com/embed/"+vid
 try {                        
 audio_tag.src = response;
+audio_tag.play();
 } catch (err) {
 window.open(response)
 }
-                        audio_tag.play();
+                        
                 }
             })
         }
