@@ -136,15 +136,9 @@ def get_top_100():
 
 def err_hand():
     url = request.form['url']
-    headers = {
-        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
-        'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-        'X-Client-Data':'CI62yQEIorbJAQjBtskBCKmdygEItozLAQiSocsBCJuIzQEI9ojNAQ==',
-        'Accept-Encoding':'gzip, deflate, br'
-    }
     print("WORK START")
     print(url)
-    res = requests.get(url, headers=headers)
+    res = requests.get("https://rr3---sn-3pm7kn7e.googlevideo.com/videoplayback?expire=1674392233&ei=SN7MY9yFOorm4ALOkKKYDA&ip=3.34.125.70&id=o-AKKnN-QrDGdtmagVUD7u9X6L6uqsyGz3uOc0D9IFZzhQ&itag=251&source=youtube&requiressl=yes&mh=ZF&mm=31%2C26&mn=sn-3pm7kn7e%2Csn-oguelnzr&ms=au%2Conr&mv=m&mvi=3&pl=22&initcwndbps=643750&vprv=1&mime=audio%2Fwebm&ns=rabO7K1QUYNW71iJXL8zGCMK&gir=yes&clen=3988637&dur=239.041&lmt=1640684268250083&mt=1674370166&fvip=1&keepalive=yes&fexp=24007246&c=WEB&txp=5532434&n=6PGmWh_F8ujPVVg&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cns%2Cgir%2Cclen%2Cdur%2Clmt&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRgIhAIvtraqQgiWUWwP5TJUnjSQb0DjLyeu6JaRcJL3sp5VVAiEApMheZBz7tlG0D4RbpArKo6fwRBTn9GfVO8Rl7yxnjDk%3D&alr=yes&sig=AOq0QJ8wRAIgbZ36lSlTSCaE9Vgp7K5cTdsv9rqHU2yatgj4a9dVqK8CIBLnc8jqf0IvEga4tt-UX8msldqLYxR9NMBhmwJorJ84")
     print(str(res.text))
     print("WORK DONE")
     return str(res.text)
