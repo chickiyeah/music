@@ -27,6 +27,8 @@ try:
     import youtube_transcript_api
 
     import uyts
+    
+    import pytube
 
     from youtubesearchpython import VideosSearch
 
@@ -138,11 +140,10 @@ def err_hand():
     url = request.form['url']
     print("WORK START")
     print(url)
-    res = requests.get(url, allow_redirects=False)
-    print(res.content)
-    print(res.headers['Location'])
-    print("WORK DONE")
-    return str(res.content)
+    video = pytube.Youtube("https://www.youtube.com/watch?v="+url)
+    stream = video.streams.all()
+    print(stream[0])
+    return str(stream[0])
 
 @app.route('/api/new100')
 
