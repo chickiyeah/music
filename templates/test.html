@@ -144,13 +144,7 @@ eruda.init({
                     audio_tag.src = response;
                     audio_tag.play().catch(function(err) {
                     window.open(response)
-                    axios.get(
-                        response,
-                        { withCredentials: true }
-                   ).then(response => {
-                        console.log(response)
-                        }
-                   )
+                    axios.get(response,{ withCredentials: true }).then(response => {console.log(response)})
                         video_tag.src = "https://www.youtube.com/embed/"+vid
 
 
