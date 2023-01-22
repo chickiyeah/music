@@ -232,7 +232,7 @@ window.open(response)
                         audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'] || newgetsong(vid);
 try {                        
  audio_tag.play();
-} expect (err) {
+} catch (err) {
  console.log(err)
 }
                         requestCC(vid);
