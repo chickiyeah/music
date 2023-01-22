@@ -137,10 +137,11 @@ def get_top_100():
 def err_hand():
     url = request.form['url']
     headers = {
-    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
-    'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
-    'X-Client-Data':'CI62yQEIorbJAQjBtskBCKmdygEItozLAQiSocsBCJuIzQEI9ojNAQ=='
-}
+        'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko',
+        'Accept' : 'text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+        'X-Client-Data':'CI62yQEIorbJAQjBtskBCKmdygEItozLAQiSocsBCJuIzQEI9ojNAQ==',
+        'Accept-Encoding':'gzip, deflate, br'
+    }
     print("WORK START")
     print(url)
     res = requests.get(url, headers=headers)
