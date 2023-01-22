@@ -28,7 +28,7 @@ try:
 
     import uyts
     
-    import pytube
+    from pytube import YouTube
 
     from youtubesearchpython import VideosSearch
 
@@ -140,8 +140,8 @@ def err_hand():
     url = request.form['url']
     print("WORK START")
     print(url)
-    video = pytube.Youtube("https://www.youtube.com/watch?v="+url)
-    stream = video.streams.all()
+    video = YouTube("https://www.youtube.com/watch?v="+url)
+    stream = video.streams
     print(stream[0])
     return str(stream[0])
 
