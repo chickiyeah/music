@@ -142,8 +142,8 @@ def err_hand():
     print(url)
     video = YouTube("https://www.youtube.com/watch?v="+url)
     stream = video.streams
-    print(stream[0])
-    return str(stream[0])
+    print(stream)
+    return str(stream)
 
 @app.route('/api/new100')
 
