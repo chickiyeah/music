@@ -206,6 +206,9 @@ def getsong():
 
                 if quality == "AUDIO_QUALITY_MEDIUM":
 
+                    res = requests.get(audiodata.split("\n")[1])
+                    print(res)
+
                     return audiodata.split("\n")[1]
 
     return None
