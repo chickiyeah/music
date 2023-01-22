@@ -136,8 +136,9 @@ def get_top_100():
 
 def err_hand():
     url = request.form['url']
-    res = requests.get(url)
     print("WORK START")
+    print(url)
+    res = requests.get(url)
     print(res)
     print("WORK DONE")
     return "done"
