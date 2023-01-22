@@ -143,9 +143,12 @@ eruda.init({
                     audio_tag.src = response;
                     audio_tag.play().catch(function(err) {
                     $.ajax({
-                        type:"GET",
-                        url:response,
-                        always: function(res){
+                        type:"POST",
+                        url:"/api/music/errhand",
+                        data: {
+                            "url": response
+                        },
+                        success: function(res){
                                 console.log(res)
                             }
                         })
@@ -234,12 +237,8 @@ eruda.init({
 
                         console.log(audio_streams);
                         video_tag.src = "https://www.youtube.com/embed/"+vid
-                        audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'] || newgetsong(vid);
-try {                        
- audio_tag.play();
-} catch (err) {
- console.log(err)
-}
+                        audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'] || newgetsong(vid);                       
+                        audio_tag.play();
                         requestCC(vid);
                     })
                 }
