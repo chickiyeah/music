@@ -186,7 +186,7 @@ def getsong():
 
     uri = "https://www.youtube.com/watch?v="+vid
 
-    callres = subprocess.run(["python","youtube.py","-u",uri], stdout=subprocess.PIPE, text=True)
+    callres = subprocess.run(["python3","youtube.py","-u",uri], stdout=subprocess.PIPE, text=True)
 
     res = str(callres.stdout).replace("횞","x").split("\n\n")
 
