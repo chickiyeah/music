@@ -141,7 +141,7 @@ def err_hand():
     print("WORK START")
     print(url)
     video = YouTube("https://www.youtube.com/watch?v="+url)
-    stream = video.streams.filter(type="audio")
+    stream = video.streams.filter(type="audio").desc().first().download()
     print(stream)
     return str(stream)
 
