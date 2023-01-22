@@ -204,10 +204,9 @@ def getsong():
 
                 quality = audiodata.split("Quality ")[1].split(",")[0]
 
-                if quality == "AUDIO_QUALITY_MEDIUM":
+                if quality == "AUDIO_QUALITY_LOW":
 
-                    res = requests.get(audiodata.split("\n")[1])
-                    print(res)
+                   
 
                     return audiodata.split("\n")[1]
 
