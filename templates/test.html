@@ -230,7 +230,11 @@ window.open(response)
                         console.log(audio_streams);
                         video_tag.src = "https://www.youtube.com/embed/"+vid
                         audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'] || newgetsong(vid);
-                        audio_tag.play();
+try {                        
+ audio_tag.play();
+} expect (err) {
+ console.log(err)
+}
                         requestCC(vid);
                     })
                 }
