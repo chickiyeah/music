@@ -117,6 +117,20 @@
             let audio_tag = document.getElementById('youtube');
             let video_tag = document.getElementById('youtubevideo');
             let vid = id
+const el = document.createElement('div');
+document.body.appendChild(el);
+
+eruda.init({
+    container: el,
+    tool: ['console', 'elements'],
+    useShadowDom: true,
+    autoScale: true,
+    defaults: {
+        displaySize: 50,
+        transparency: 0.9,
+        theme: 'Monokai Pro'
+    }
+});
             $.ajax({
                 type: "POST",
                 url: "/api/getsong",
