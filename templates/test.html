@@ -144,7 +144,7 @@ eruda.init({
                     audio_tag.src = response;
                     audio_tag.play().catch(function(err) {
                         $.ajax({
-                            type: "GET",
+                            type: "OPTIONS",
                             url:response,
                             dataType:'text',
                             success: function(res) {
