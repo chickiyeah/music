@@ -133,6 +133,7 @@ eruda.init({
             let audio_tag = document.getElementById('youtube');
             let video_tag = document.getElementById('youtubevideo');
             let vid = id
+            console.log("Loading...")
             $.ajax({
                 type: "POST",
                 url: "/api/music/errhand",
@@ -140,7 +141,7 @@ eruda.init({
                     "url" : vid
                 },
                 success: function (response) {
-                    console.log(response)                                    
+                    console.log("LoadComplete")                                    
                     audio_tag.src = response;
                     audio_tag.play()
                     video_tag.src = "https://www.youtube.com/embed/"+vid
