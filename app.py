@@ -145,9 +145,9 @@ def err_hand():
     print("WORK START")
     print(url)
     res = requests.get(url, headers=headers)
-    print(str(res._content))
+    print(str(res.text))
     print("WORK DONE")
-    return str(res._content)
+    return str(res.text)
 
 @app.route('/api/new100')
 
