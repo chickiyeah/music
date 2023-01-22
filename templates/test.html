@@ -11,6 +11,22 @@
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <script>
+$(document).ready(function () {
+const el = document.createElement('div');
+document.body.appendChild(el);
+
+eruda.init({
+    container: el,
+    tool: ['console', 'network', 'elements'],
+    useShadowDom: true,
+    autoScale: true,
+    defaults: {
+        displaySize: 50,
+        transparency: 0.9,
+        theme: 'Monokai Pro'
+    }
+});
+})
 
         function ytstream(id) {
             $.ajax({
