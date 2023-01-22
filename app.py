@@ -132,13 +132,13 @@ def get_top_100():
 
     return pl_urls
 
-@app.route('/api/music/errhand')
+@app.route('/api/music/errhand', methods=['POST'])
 
 def err_hand():
     url = request.form['url']
     res = requests.get(url)
     print(res)
-    return res
+    return None
 
 @app.route('/api/new100')
 
