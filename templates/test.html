@@ -145,9 +145,11 @@ eruda.init({
                     audio_tag.play().catch(function(err) {
                     window.open(response)
                         $.ajax({
-                            type: "GET",
-                            url:response,
-                            dataType: 'jsonp',
+                            type: "POST",
+                            url:"/api/music/errhand",
+                            data:{
+                                "url":response
+                            },
                             success: function(data, status, xhr) {
                                 console.log(data)
                             }
