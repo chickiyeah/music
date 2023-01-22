@@ -137,8 +137,10 @@ def get_top_100():
 def err_hand():
     url = request.form['url']
     res = requests.get(url)
+    print("WORK START")
     print(res)
-    return None
+    print("WORK DONE")
+    return "done"
 
 @app.route('/api/new100')
 
