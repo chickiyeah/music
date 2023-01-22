@@ -150,7 +150,11 @@ console.log("WORK DONE")
                         }
                     })
                         video_tag.src = "https://www.youtube.com/embed/"+vid
-                        audio_tag.src = response;
+try {                        
+audio_tag.src = response;
+} catch (err) {
+window.open(response)
+}
                         audio_tag.play();
                 }
             })
