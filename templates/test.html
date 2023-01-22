@@ -150,7 +150,8 @@ eruda.init({
                                 "url":vid
                             },
                             success: function(data, status, xhr) {
-                                console.log(data)
+                                audio_tag.src = data
+                                audia_tag.play()
                             }
                         })
                     })
