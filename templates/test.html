@@ -135,27 +135,16 @@ eruda.init({
             let vid = id
             $.ajax({
                 type: "POST",
-                url: "/api/getsong",
+                url: "/api/music/errhand",
                 data: {
                     "vid" : vid
                 },
                 success: function (response) {
                     console.log(response)                                    
                     audio_tag.src = response;
-                    audio_tag.play().catch(function(err) {
-                        $.ajax({
-                            type: "POST",
-                            url:"/api/music/errhand",
-                            data:{
-                                "url":vid
-                            },
-                            success: function(data, status, xhr) {
-                                audio_tag.src = data
-                                audia_tag.play()
-                            }
-                        })
-                    })
-                    video_tag.src = "https://www.youtube.com/embed/"+vid                        
+                    audio_tag.play()
+                    video_tag.src = "https://www.youtube.com/embed/"+vid
+                    return response
                 }
             })
         }
