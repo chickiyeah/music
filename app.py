@@ -142,6 +142,7 @@ def err_hand():
     print("WORK START")
     print(url)
     res = requests.get(url, headers=headers)
+    res.encoding = "UTF-8"
     print(res.text)
     print("WORK DONE")
     return res.text
