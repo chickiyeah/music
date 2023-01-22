@@ -1146,3 +1146,652 @@ Subtitles are disabled for this video
 If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
 112.152.36.226 - - [22/Jan/2023 12:07:06] "POST /api/getsong HTTP/1.1" 200 -
 112.152.36.226 - - [22/Jan/2023 12:07:07] "POST /api/getsong HTTP/1.1" 200 -
+183.96.80.196 - - [22/Jan/2023 12:07:59] "GET / HTTP/1.1" 200 -
+183.96.80.196 - - [22/Jan/2023 12:08:01] "GET /favicon.ico HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 12:08:23] "POST /api/getsong HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 12:09:30] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 12:09:31] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 12:09:33] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 12:09:33] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 12:11:31] "POST /api/getsong HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 12:11:33] "POST /api/getsong HTTP/1.1" 200 -
+192.241.216.19 - - [22/Jan/2023 12:27:47] "GET / HTTP/1.1" 200 -
+ * Detected change in '/home/ubuntu/music/app.py', reloading
+<Response [200]>
+<Response [200]>
+<Response [200]>
+<Response [200]>
+['d_8BYn42L8w', 'TA06nvaT72Q', 'AaqUqbzg0Us', 'OzCaD88h8tk', 'HwC3KGJKZIg', 'xxJL3jIZxtY', 'iPy_A-x9UPw', 'VvLNz352f7Q', 'kXavOjM0J14', '-iCOl3JvaDw', 'uEcDcNt7_CU', '7U_XCm8jzoo', 'k8wwhZJkLDY', 'sVydSseSOCQ', 'd9p8Ci9e1XA', '5Ju0kzIha3c', 'dc6D3fYw--k', 'W_wz-pkXSSs', 'EcKU_AzWl-M']
+['윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '정인, 윤종신 - 오르막길 [가사/Lyrics]', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '오르막길 - 뢴트게늄x해루석 COVER', '1시간/ 윤종신 -  오르막길/ 가사있음/광고0', '정인 윤종신_ 오르막길 1시간/가사포함', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '🎤 하림(Hareem)의 진심어린 축가 선물♡  ′오르막길′♪ 〈비긴어게인 코리아(beginagainkorea)〉 8회', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드"]
+<Response [200]>
+<Response [200]>
+<Response [200]>
+['TA06nvaT72Q', 'HwC3KGJKZIg', 'AaqUqbzg0Us', 'd_8BYn42L8w', 'xxJL3jIZxtY', 'OzCaD88h8tk', 'VvLNz352f7Q', 'iPy_A-x9UPw', 'kXavOjM0J14', 'sVydSseSOCQ', '-iCOl3JvaDw', 'uEcDcNt7_CU', 'dc6D3fYw--k', 'k8wwhZJkLDY', '7U_XCm8jzoo', '5Ju0kzIha3c', '3HgFYRG2l9g', 'd9p8Ci9e1XA', 'KL8rkzlXTAg', 'EcKU_AzWl-M']
+['정인, 윤종신 - 오르막길 [가사/Lyrics]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '정인 윤종신_ 오르막길 1시간/가사포함', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', '1시간/ 윤종신 -  오르막길/ 가사있음/광고0', '둘이 합쳐 1000번 이상 불렀다는 정인,윤종신 - 오르막길 판듀ver. (Cover by. 더히든 전철민 x 지세희)', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드"]
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 100-445-105
+112.152.36.226 - - [22/Jan/2023 12:37:49] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 12:37:50] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 12:37:50] "POST /api/getsong HTTP/1.1" 200 -
+ * Detected change in '/home/ubuntu/music/app.py', reloading
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 100-445-105
+112.152.36.226 - - [22/Jan/2023 12:40:33] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 12:40:33] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 12:41:30] "POST /api/lyrcis HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 12:41:48] "GET / HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 12:42:34] "POST /api/getsong HTTP/1.1" 200 -
+ * Detected change in '/home/ubuntu/music/app.py', reloading
+['TA06nvaT72Q', 'd_8BYn42L8w', 'AaqUqbzg0Us', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'VvLNz352f7Q', 'xxJL3jIZxtY', 'kXavOjM0J14', 'iPy_A-x9UPw', 'sVydSseSOCQ', '-iCOl3JvaDw', 'uEcDcNt7_CU', 'dc6D3fYw--k', 'k8wwhZJkLDY', '5Ju0kzIha3c', '7U_XCm8jzoo', '3HgFYRG2l9g', 'EcKU_AzWl-M', 'bOT59V07P6I']
+['정인, 윤종신 - 오르막길 [가사/Lyrics]', '윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '정인 윤종신_ 오르막길 1시간/가사포함', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드", '유희열의 스케치북 - 정인 - 오르막길. 20160129']
+<Response [200]>
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 100-445-105
+112.152.36.226 - - [22/Jan/2023 12:45:19] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 12:45:20] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 12:45:20] "POST /api/getsong HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 12:48:23] "GET / HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 12:48:50] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 12:48:51] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 12:48:51] "POST /api/getsong HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 12:52:57] "GET / HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 12:53:08] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 12:53:08] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 12:53:09] "POST /api/getsong HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 12:54:40] "GET / HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 12:54:51] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 12:54:51] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 12:54:52] "POST /api/getsong HTTP/1.1" 200 -
+['TA06nvaT72Q', 'd_8BYn42L8w', 'AaqUqbzg0Us', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'VvLNz352f7Q', 'xxJL3jIZxtY', 'kXavOjM0J14', 'iPy_A-x9UPw', 'sVydSseSOCQ', '-iCOl3JvaDw', 'uEcDcNt7_CU', 'dc6D3fYw--k', 'k8wwhZJkLDY', '5Ju0kzIha3c', '7U_XCm8jzoo', '3HgFYRG2l9g', 'EcKU_AzWl-M', 'bOT59V07P6I', '_WL__d-4-J8']
+['정인, 윤종신 - 오르막길 [가사/Lyrics]', '윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '정인 윤종신_ 오르막길 1시간/가사포함', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드", '유희열의 스케치북 - 정인 - 오르막길. 20160129', '[놀면 뭐하니? 미방분] WSG 워너비 블라인드 오디션 [엄지윤 - 오르막길] (Hangout with Yoo)']
+['TA06nvaT72Q', 'd_8BYn42L8w', 'AaqUqbzg0Us', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'VvLNz352f7Q', 'xxJL3jIZxtY', 'kXavOjM0J14', 'iPy_A-x9UPw', 'sVydSseSOCQ', '-iCOl3JvaDw', 'uEcDcNt7_CU', 'dc6D3fYw--k', 'k8wwhZJkLDY', '5Ju0kzIha3c', '7U_XCm8jzoo', '3HgFYRG2l9g', 'EcKU_AzWl-M', 'bOT59V07P6I']
+['정인, 윤종신 - 오르막길 [가사/Lyrics]', '윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '정인 윤종신_ 오르막길 1시간/가사포함', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드", '유희열의 스케치북 - 정인 - 오르막길. 20160129']
+['TA06nvaT72Q', 'd_8BYn42L8w', 'AaqUqbzg0Us', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'VvLNz352f7Q', 'xxJL3jIZxtY', 'kXavOjM0J14', 'iPy_A-x9UPw', 'sVydSseSOCQ', '-iCOl3JvaDw', 'uEcDcNt7_CU', 'dc6D3fYw--k', 'k8wwhZJkLDY', '5Ju0kzIha3c', '7U_XCm8jzoo', '3HgFYRG2l9g', 'EcKU_AzWl-M', 'bOT59V07P6I', '_WL__d-4-J8']
+['정인, 윤종신 - 오르막길 [가사/Lyrics]', '윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '정인 윤종신_ 오르막길 1시간/가사포함', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드", '유희열의 스케치북 - 정인 - 오르막길. 20160129', '[놀면 뭐하니? 미방분] WSG 워너비 블라인드 오디션 [엄지윤 - 오르막길] (Hangout with Yoo)']
+['TA06nvaT72Q', 'd_8BYn42L8w', 'AaqUqbzg0Us', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'VvLNz352f7Q', 'kXavOjM0J14', 'xxJL3jIZxtY', 'iPy_A-x9UPw', 'sVydSseSOCQ', '-iCOl3JvaDw', 'dc6D3fYw--k', 'uEcDcNt7_CU', 'k8wwhZJkLDY', '7U_XCm8jzoo', '5Ju0kzIha3c', '3HgFYRG2l9g', 'bOT59V07P6I', 'EcKU_AzWl-M', 'sh-PWYLyoRw']
+112.152.36.226 - - [22/Jan/2023 12:57:40] "GET / HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 12:57:52] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 12:57:53] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 12:57:53] "POST /api/getsong HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:03:28] "GET / HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:03:39] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 13:03:40] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 13:03:40] "POST /api/getsong HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:04:46] "GET /?eruda=true HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:04:55] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 13:04:56] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 13:04:56] "POST /api/getsong HTTP/1.1" 200 -
+['정인, 윤종신 - 오르막길 [가사/Lyrics]', '윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '정인 윤종신_ 오르막길 1시간/가사포함', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', '유희열의 스케치북 - 정인 - 오르막길. 20160129', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드", '윤종신(feat.정인)_오르막길 [가사]']
+['d_8BYn42L8w', 'TA06nvaT72Q', '7U_XCm8jzoo', 'OzCaD88h8tk', 'HwC3KGJKZIg', 'VvLNz352f7Q', 'xxJL3jIZxtY', 'iPy_A-x9UPw', 'kXavOjM0J14', 'sVydSseSOCQ', '-iCOl3JvaDw', 'uEcDcNt7_CU', 'k8wwhZJkLDY', 'dc6D3fYw--k', 'bOT59V07P6I', '3HgFYRG2l9g', 'EcKU_AzWl-M', '_WL__d-4-J8', 'sh-PWYLyoRw']
+['윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '정인, 윤종신 - 오르막길 [가사/Lyrics]', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '유희열의 스케치북 - 정인 - 오르막길. 20160129', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드", '[놀면 뭐하니? 미방분] WSG 워너비 블라인드 오디션 [엄지윤 - 오르막길] (Hangout with Yoo)', '윤종신(feat.정인)_오르막길 [가사]']
+['TA06nvaT72Q', 'd_8BYn42L8w', 'AaqUqbzg0Us', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'VvLNz352f7Q', 'kXavOjM0J14', 'xxJL3jIZxtY', 'iPy_A-x9UPw', 'sVydSseSOCQ', '-iCOl3JvaDw', 'uEcDcNt7_CU', 'dc6D3fYw--k', 'k8wwhZJkLDY', '7U_XCm8jzoo', '5Ju0kzIha3c', '3HgFYRG2l9g', 'bOT59V07P6I', 'EcKU_AzWl-M']
+['정인, 윤종신 - 오르막길 [가사/Lyrics]', '윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '정인 윤종신_ 오르막길 1시간/가사포함', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', '유희열의 스케치북 - 정인 - 오르막길. 20160129', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드"]
+['TA06nvaT72Q', 'd_8BYn42L8w', 'AaqUqbzg0Us', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'xxJL3jIZxtY', 'VvLNz352f7Q', 'kXavOjM0J14', 'iPy_A-x9UPw', 'sVydSseSOCQ', 'uEcDcNt7_CU', '-iCOl3JvaDw', 'dc6D3fYw--k', 'k8wwhZJkLDY', 'VUNbyh6Z980', 'bOT59V07P6I', '7U_XCm8jzoo', '3HgFYRG2l9g', '5Ju0kzIha3c']
+112.152.36.226 - - [22/Jan/2023 13:06:07] "GET /?eruda=true HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:06:18] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 13:06:19] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 13:06:19] "POST /api/getsong HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:08:33] "GET /?eruda=true HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:09:49] "GET /?eruda=true HTTP/1.1" 200 -
+['정인, 윤종신 - 오르막길 [가사/Lyrics]', '윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '오르막길 - 뢴트게늄x해루석 COVER', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '이것은 인생길 간결판? 오르막길 내리막길  모두 쉽지 않다고 한다 등산하며 인생을 생각했다', '유희열의 스케치북 - 정인 - 오르막길. 20160129', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', '정인 윤종신_ 오르막길 1시간/가사포함']
+['TA06nvaT72Q', 'd_8BYn42L8w', 'AaqUqbzg0Us', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'VvLNz352f7Q', 'kXavOjM0J14', 'xxJL3jIZxtY', 'iPy_A-x9UPw', 'sVydSseSOCQ', '-iCOl3JvaDw', 'uEcDcNt7_CU', 'dc6D3fYw--k', 'k8wwhZJkLDY', '7U_XCm8jzoo', '5Ju0kzIha3c', '3HgFYRG2l9g', 'bOT59V07P6I', 'EcKU_AzWl-M']
+['정인, 윤종신 - 오르막길 [가사/Lyrics]', '윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '정인 윤종신_ 오르막길 1시간/가사포함', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', '유희열의 스케치북 - 정인 - 오르막길. 20160129', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드"]
+['d_8BYn42L8w', 'TA06nvaT72Q', 'AaqUqbzg0Us', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'VvLNz352f7Q', 'kXavOjM0J14', 'xxJL3jIZxtY', 'iPy_A-x9UPw', 'sVydSseSOCQ', '-iCOl3JvaDw', 'uEcDcNt7_CU', 'dc6D3fYw--k', 'k8wwhZJkLDY', '7U_XCm8jzoo', '5Ju0kzIha3c', '3HgFYRG2l9g', 'bOT59V07P6I', 'EcKU_AzWl-M']
+['윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '정인, 윤종신 - 오르막길 [가사/Lyrics]', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '정인 윤종신_ 오르막길 1시간/가사포함', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', '유희열의 스케치북 - 정인 - 오르막길. 20160129', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드"]
+['TA06nvaT72Q', 'd_8BYn42L8w', 'AaqUqbzg0Us', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'VvLNz352f7Q', 'kXavOjM0J14', 'xxJL3jIZxtY', 'iPy_A-x9UPw', 'sVydSseSOCQ', '-iCOl3JvaDw', 'uEcDcNt7_CU', 'dc6D3fYw--k', 'k8wwhZJkLDY', '7U_XCm8jzoo', '5Ju0kzIha3c', '3HgFYRG2l9g', 'bOT59V07P6I', 'EcKU_AzWl-M']
+112.152.36.226 - - [22/Jan/2023 13:10:10] "GET /?eruda=true HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:10:19] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 13:10:20] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 13:10:20] "POST /api/getsong HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:11:45] "GET /?eruda=true HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:11:54] "GET /?eruda=true HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:12:02] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 13:12:03] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 13:12:03] "POST /api/getsong HTTP/1.1" 200 -
+['정인, 윤종신 - 오르막길 [가사/Lyrics]', '윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '정인 윤종신_ 오르막길 1시간/가사포함', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', '유희열의 스케치북 - 정인 - 오르막길. 20160129', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드"]
+['d_8BYn42L8w', 'TA06nvaT72Q', 'AaqUqbzg0Us', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'VvLNz352f7Q', 'kXavOjM0J14', 'xxJL3jIZxtY', 'iPy_A-x9UPw', 'sVydSseSOCQ', '-iCOl3JvaDw', 'uEcDcNt7_CU', 'dc6D3fYw--k', 'k8wwhZJkLDY', '7U_XCm8jzoo', '5Ju0kzIha3c', '3HgFYRG2l9g', 'EcKU_AzWl-M', 'bOT59V07P6I', '_WL__d-4-J8']
+['윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '정인, 윤종신 - 오르막길 [가사/Lyrics]', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '정인 윤종신_ 오르막길 1시간/가사포함', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드", '유희열의 스케치북 - 정인 - 오르막길. 20160129', '[놀면 뭐하니? 미방분] WSG 워너비 블라인드 오디션 [엄지윤 - 오르막길] (Hangout with Yoo)']
+['TA06nvaT72Q', 'd_8BYn42L8w', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'VvLNz352f7Q', 'kXavOjM0J14', 'xxJL3jIZxtY', 'iPy_A-x9UPw', '-iCOl3JvaDw', 'sVydSseSOCQ', 'uEcDcNt7_CU', 'dc6D3fYw--k', 'k8wwhZJkLDY', '7U_XCm8jzoo', '5Ju0kzIha3c', '3HgFYRG2l9g', 'EcKU_AzWl-M', 'bOT59V07P6I', '_WL__d-4-J8']
+['정인, 윤종신 - 오르막길 [가사/Lyrics]', '윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '오르막길 - 뢴트게늄x해루석 COVER', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '정인 윤종신_ 오르막길 1시간/가사포함', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드", '유희열의 스케치북 - 정인 - 오르막길. 20160129', '[놀면 뭐하니? 미방분] WSG 워너비 블라인드 오디션 [엄지윤 - 오르막길] (Hangout with Yoo)']
+['d_8BYn42L8w', 'TA06nvaT72Q', 'AaqUqbzg0Us', 'HwC3KGJKZIg', 'OzCaD88h8tk', 'VvLNz352f7Q', 'kXavOjM0J14', 'xxJL3jIZxtY', 'iPy_A-x9UPw', 'sVydSseSOCQ', '-iCOl3JvaDw', 'uEcDcNt7_CU', 'dc6D3fYw--k', 'k8wwhZJkLDY', '7U_XCm8jzoo', '5Ju0kzIha3c', '3HgFYRG2l9g', 'EcKU_AzWl-M', 'bOT59V07P6I']
+112.152.36.226 - - [22/Jan/2023 13:15:19] "GET / HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:15:25] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 13:15:26] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 13:15:26] "POST /api/getsong HTTP/1.1" 200 -
+ * Detected change in '/home/ubuntu/music/app.py', reloading
+['윤종신·영상설치 조기사 담담하게 풀어낸 이야기 ‘오르막길’ (Full Performance)', '정인, 윤종신 - 오르막길 [가사/Lyrics]', '이런곳은 99프로 사고난다 얼음낀 오르막길을 가다, 그대로 미끄러져 산으로 추락한 사고. 겨울철, 눈 내린 뒤 무조건 봐야할 영상 1순위. [대성캡틴 리얼 구난 스토리]', '2012 월간 윤종신 6월호 - 오르막길 with 정인', '윤종신 오르막길 가사 / Yoon Jong Shin Uphill Lyrics', '윤종신 Yoon Jong Shin - 오르막길 Uphill 150605', '[4K] 이승기(LeeSeungGi) - 오르막길 | TABLE CONCERT', '눈물샘 주의💦 듣는 이들의 마음을 울리는 정인(JUNG-IN)의 〈오르막길〉♬ 바라던 바다 (sea of hope) 10회 | JTBC 210831 방송', "♨핫클립♨ ＂저분 보컬 타짭니다!＂ 김범수를 떠오르게 하는 가왕의 하관 37호 가수 '오르막길'｜싱어게인2｜JTBC 211220 방송", '오르막길 - 뢴트게늄x해루석 COVER', '힘든 시간을 이겨온 이서환(Lee Seohwan)이 부르는 셀프 축가 〈오르막길〉♪ 뜨거운 씽어즈(hotsingers) 2회 | JTBC 220321 방송', '어디서도 볼 수 없는 조합(๑˃̵ᴗ˂̵๑)♥ 윤종신x온유(ONEW)x이수현의 〈오르막길〉♬ 바라던 바다(sea of hope) 3회 | JTBC 210713 방송', '[TJ노래방] 오르막길 - 윤종신 / TJ Karaoke', '귀를 녹이는 감성 보컬🎧 김필의 〈오르막길〉♬ | 뉴페스타 11회 | JTBC 220816 방송', '윤종신(Yoon Jong Shin) - 오르막길 1시간 (Uphill 1 hour)', '정인 윤종신_ 오르막길 1시간/가사포함', '보컬로 쥐락펴락♪(´▽｀) 무한대로 집중하게 되는 37호 가수의 〈오르막길〉♬ 싱어게인2(singagain2) 3회 | JTBC 211220 방송', "굳이 고된 나를 택한 그대에게💌 '알리 - 오르막길' | 청춘밴드", '유희열의 스케치북 - 정인 - 오르막길. 20160129']
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: 100-445-105
+112.152.36.226 - - [22/Jan/2023 13:17:23] "GET / HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:17:39] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 13:17:40] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 13:17:40] "POST /api/getsong HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:20:09] "GET / HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:21:26] "GET /favicon.ico HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 13:22:57] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 13:22:58] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 13:22:58] "POST /api/getsong HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:23:14] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 13:23:15] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 13:23:15] "POST /api/getsong HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:27:56] "GET / HTTP/1.1" 200 -
+112.152.36.226 - - [22/Jan/2023 13:28:19] "GET /undefined HTTP/1.1" 404 -
+112.152.36.226 - - [22/Jan/2023 13:28:19] "POST /api/lyrcis HTTP/1.1" 500 -
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2548, in __call__
+    return self.wsgi_app(environ, start_response)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2528, in wsgi_app
+    response = self.handle_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 2525, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1822, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1820, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/usr/local/lib/python3.10/dist-packages/flask/app.py", line 1796, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+  File "/home/ubuntu/music/app.py", line 151, in get_lyrcis
+    cclist = YouTubeTranscriptApi.list_transcripts(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_api.py", line 71, in list_transcripts
+    return TranscriptListFetcher(http_client).fetch(video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 47, in fetch
+    self._extract_captions_json(self._fetch_video_html(video_id), video_id)
+  File "/usr/local/lib/python3.10/dist-packages/youtube_transcript_api/_transcripts.py", line 59, in _extract_captions_json
+    raise TranscriptsDisabled(video_id)
+youtube_transcript_api._errors.TranscriptsDisabled: 
+Could not retrieve a transcript for the video https://www.youtube.com/watch?v=NwSriMki_UA! This is most likely caused by:
+
+Subtitles are disabled for this video
+
+If you are sure that the described cause is not responsible for this error and that a transcript should be retrievable, please create an issue at https://github.com/jdepoix/youtube-transcript-api/issues. Please add which version of youtube_transcript_api you are using and provide the information needed to replicate the error. Also make sure that there are no open issues which already describe your problem!
+112.152.36.226 - - [22/Jan/2023 13:28:20] "POST /api/getsong HTTP/1.1" 200 -
