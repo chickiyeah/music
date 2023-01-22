@@ -157,8 +157,10 @@ eruda.init({
                     $.ajax({
                         type:"GET",
                         url: response,
-                        success: function (response) {
+                        done: function (response) {
+console.log("WORK START")
                             console.log(response)
+console.log("WORK DONE")
                         }
                     })
                         video_tag.src = "https://www.youtube.com/embed/"+vid
