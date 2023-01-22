@@ -136,12 +136,15 @@ def get_top_100():
 
 def err_hand():
     url = request.form['url']
+    headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; rv:11.0) like Gecko'
+}
     print("WORK START")
     print(url)
-    res = requests.get(url)
-    print(res)
+    res = requests.get(url, headers=headers)
+    print(res.text)
     print("WORK DONE")
-    return "done"
+    return res.text
 
 @app.route('/api/new100')
 
