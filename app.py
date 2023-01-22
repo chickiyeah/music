@@ -1,22 +1,5 @@
-import os
-import subprocess
-import requests
 
-app = ""
-try:
-    from flask import Flask, render_template, request
-
-    app = Flask(__name__)
-except ModuleNotFoundError:
-    os.system('pip install flask')
-    os.system('pip install flask[async]')
-    from flask import Flask, render_template, request
-
-    app = Flask(__name__)
-
-try:
-    import youtube_transcript_api
- import uyts
+    import uyts
 
     from youtubesearchpython import VideosSearch
     from ytmusicapi import YTMusic
