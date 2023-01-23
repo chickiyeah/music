@@ -40,6 +40,12 @@ except ModuleNotFoundError:
 
 try:
     
+    import firebase_admin
+    from firebase_admin import auth
+    from firebase_admin import credentials
+    from firebase_admin import storage
+    from firebase import Firebase
+    
     import scrapetube
     
     import youtube_transcript_api
@@ -75,6 +81,10 @@ except ModuleNotFoundError:
     os.system('pip install youtube-transcript-api')
     
     os.system('pip install scrapetube')
+    
+    os.system('pip install firebase')
+    
+    os.system('pip install firebase_admin')
 
 import json
 
