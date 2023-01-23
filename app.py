@@ -88,9 +88,7 @@ def get_playlist(playlists):
 
         playlist_urls = Playlist(playlist)
 
-        for url in playlist_urls:
-
-            url = url.split("v=")[1]
+        for url in playlist_urls.videos:
 
             urls.append(url)
 
@@ -155,11 +153,8 @@ def get_top_100():
 
 def secure_music():
     url = request.form['url']
-    print("WORK START")
-    print(url)
     video = YouTube("https://www.youtube.com/watch?v="+url)
     stream = video.streams.filter(type="audio").desc().first().url
-    print(stream)
     return str(stream)
 
 @app.route('/api/channel/getvideos', methods=['POST'])
