@@ -128,25 +128,31 @@
         }
 
         function requestCC(id) {
-            $.ajax({
-                type: "POST",
-                url: "/api/lyrcis",
-                data: {
-                    "video_id": id
-                },
-                success: function (response) {
-                    $("#CC").empty()
-                    response.forEach(function (lyrcis) {
-                        let lyr = `<li>${lyrcis.text}</li>`
+            try {
+                $.ajax({
+                    type: "POST",
+                    url: "/api/lyrcis",
+                    data: {
+                        "video_id": id
+                    },
+                    success: function (response) {
+                        $("#CC").empty()
+                        response.forEach(function (lyrcis) {
+                            let lyr = `<li>${lyrcis.text}</li>`
+                            $("#CC").append(lyr)
+                        })
+                    },
+                    error: function (response) {
+                        $("#CC").empty()
+                        let lyr = `<li>등록된 가사가 없습니다.</li>`
                         $("#CC").append(lyr)
-                    })
-                },
-                error: function (response) {
-                    $("#CC").empty()
-                    let lyr = `<li>등록된 가사가 없습니다.</li>`
-                    $("#CC").append(lyr)
-                }
-            })
+                    }
+                })
+            } catch (err) {
+                $("#CC").empty()
+                let lyr = `<li>등록된 가사가 없습니다.</li>`
+                $("#CC").append(lyr)
+            }
         }
 
         function newgetsong(id) {
