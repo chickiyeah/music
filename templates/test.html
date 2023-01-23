@@ -30,6 +30,7 @@
         })
         
         function getchannelvideos(channel) {
+            console.log("Getting All Videos For This Channel...")
             $.ajax({
                 type: "POST",
                 url:"/api/channel/getvideos",
@@ -41,6 +42,7 @@
                     return response
                 }
             })
+            console.log("Successfully All Videos For This Channel")
         }
 
         function ytstream(id) {
