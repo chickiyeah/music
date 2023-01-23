@@ -90,9 +90,12 @@ def get_playlist(playlists):
 
         for url in playlist_urls:
             
-            urls.append(url)
+            urls.append(url.split("v=")[1])
 
-    return urls
+    
+    res = { id: urls }
+    
+    return res
 
 # search_results = ytmusic.search("이세계아이돌", "albums")
 
