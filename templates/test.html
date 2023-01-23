@@ -178,7 +178,7 @@
 
         let playingdata
         function youtube(id) {
-            alert("서버에 재생을 요청했습니다.\n네트워크 상태와 영상 길이에 따라 로딩시간이 소요될 수 있습니다.")
+            
             var vid = id,
                 audio_streams = {},
                 audio_tag = document.getElementById('youtube');
@@ -260,6 +260,7 @@
                         audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'] || newgetsong(vid);                       
                         audio_tag.play();
                         requestCC(vid);
+                        alert("서버에 재생을 요청했습니다.\n네트워크 상태와 영상 길이에 따라 로딩시간이 소요될 수 있습니다.")
                     })
                 }
             });
