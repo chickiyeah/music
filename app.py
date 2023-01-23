@@ -189,7 +189,7 @@ def get_new_song():
 
 @app.route('/api/list/k-hit')
 
-def k-hit():
+def k_hit():
     
     playlist = ['https://www.youtube.com/playlist?list=RDCLAK5uy_l7wbVbkC-dG5fyEQQsBfjm_z3dLAhYyvo']
     
