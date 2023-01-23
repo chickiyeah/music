@@ -4,6 +4,8 @@ import subprocess
 
 import requests
 
+import scrapetube
+
 app = ""
 
 try:
