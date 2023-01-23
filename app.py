@@ -96,7 +96,7 @@ def get_playlist(playlists):
         
         for video in playlist_urls.videos:
             
-            titles.append(video.title)
+            titles.append(video.vid_info['videoDetails'])
 
     
     
