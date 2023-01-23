@@ -90,9 +90,9 @@ def get_playlist(playlists):
 
 def hello_world():  # put application's code here
 
-    # search = ytmusic.search("we're good", ["songs"], limit=2)
+    """search = ytmusic.search("we're good", ["songs"], limit=2)
 
-    # print(search)
+     print(search)
 
     title = []
 
@@ -118,17 +118,12 @@ def hello_world():  # put application's code here
 
             id.append(data['id'])
 
-            channel.append(data['channel'])
-
-            thumbnail.append(data['thumbnails'])
+           channel.append(data['channel'])
+           thumbnail.append(data['thumbnails'])
 
             duration.append(data['duration'])
 
-            desc.append(data['descriptionSnippet'])
-
-    print(id)
-
-    print(title)
+            desc.append(data['descriptionSnippet'])"""
 
     return render_template("test.html")
 
@@ -162,7 +157,7 @@ def get_channels_videos():
     
     res = []
     for video in videos:
-        res.append(video['videoId'])
+        res.append(video)
     
     
     return res
