@@ -9,20 +9,34 @@ import scrapetube
 app = ""
 
 try:
+    
+    import flask_cors
+    
+    from flask_cors import CORS, cross_origin
 
     from flask import Flask, render_template, request
 
     app = Flask(__name__)
+    
+    CORS(app, resources={r'*': {'origins': '*'}})
 
 except ModuleNotFoundError:
 
     os.system('pip install flask')
 
     os.system('pip install flask[async]')
+    
+    os.system('pip install flask_cors')
+    
+    import flask_cors
+    
+    from flask_cors import CORS, cross_origin
 
     from flask import Flask, render_template, request
 
     app = Flask(__name__)
+    
+    CORS(app, resources={r'*': {'origins': '*'}})
 
 try:
     
@@ -170,6 +184,17 @@ def get_new_song():
 
     pl_urls = get_playlist(playlist)
 
+    return pl_urls
+
+
+@app.route('/api/list/k-hit')
+
+def k-hit():
+    
+    playlist = ['https://www.youtube.com/playlist?list=RDCLAK5uy_l7wbVbkC-dG5fyEQQsBfjm_z3dLAhYyvo']
+    
+    pl_urls = get_playlist(playlist)
+    
     return pl_urls
 
 @app.route('/api/lyrcis', methods=['POST'])
