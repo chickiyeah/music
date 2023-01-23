@@ -12,24 +12,38 @@
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
     <script>
-$(document).ready(function () {
-const el = document.createElement('div');
-document.body.appendChild(el);
+        $(document).ready(function () {
+        const el = document.createElement('div');
+        document.body.appendChild(el);
 
-eruda.init({
-    container: el,
-    tool: ['console', 'network', 'elements'],
-    useShadowDom: true,
-    autoScale: true,
-    defaults: {
-        displaySize: 50,
-        transparency: 0.9,
-        theme: 'Monokai Pro'
-    }
-});
-})
+            eruda.init({
+                container: el,
+                tool: ['console', 'network', 'elements'],
+                useShadowDom: true,
+                autoScale: true,
+                defaults: {
+                    displaySize: 50,
+                    transparency: 0.9,
+                    theme: 'Monokai Pro'
+                }
+            });
+        })
+        
+        function getchannelvideos(channel) {
+            $.ajax({
+                type: "POST",
+                url:"/api/channel/getvideos",
+                data:{
+                    "channel":channel
+                },
+                success: function (response) {
+                    console.log(response)
+                }
+            })
+        }
 
         function ytstream(id) {
+            //사용불능
             $.ajax({
                 type: "GET",
                 url:"http://ytapi.gitnol.com/get.php?id="+id,
@@ -40,6 +54,7 @@ eruda.init({
         }
 
         nw=function(a)
+        //사용불능
         {
           a=a.split("");
           mw.p7(a,34);mw.qM(a,13);
@@ -52,6 +67,7 @@ eruda.init({
         };
 
         var mw=
+            //사용불능
         {
             p7:function(a)
             {
@@ -70,6 +86,7 @@ eruda.init({
         };
 
         function bz(a) {
+            //사용불능 (구버전)
             a = a.split("");
             a = cz(a, 61);
             a = cz(a, 5);
