@@ -88,15 +88,9 @@ def get_playlist(playlists):
 
         playlist_urls = Playlist(playlist)
 
-        for url in playlist_urls.videos:
+        for url in playlist_urls:
             
-            stream = url.streams.filter(type="audio").desc().first()
-
-            data = {"title":url.title,
-                   "url":stream.url,
-                   "author":url.author}
-            
-            urls.append(data)
+            urls.append(url)
 
     return urls
 
