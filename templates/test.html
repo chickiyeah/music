@@ -53,7 +53,18 @@
                 }
             });
         }
-
+        
+        function khit() {
+            $.ajax({
+                type: "GET",
+                url:"/api/list/k-hit",
+                success: function (res) {
+                    res.forEach(function(id) {
+                        getvideodata(id)
+                    })
+                }
+            })            
+        }
         
         function ktop100() {
             $.ajax({
