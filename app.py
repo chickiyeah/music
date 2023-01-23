@@ -23,6 +23,8 @@ except ModuleNotFoundError:
     app = Flask(__name__)
 
 try:
+    
+    import scrapetube
 
     import youtube_transcript_api
 
@@ -55,6 +57,8 @@ except ModuleNotFoundError:
     os.system('pip install art')
 
     os.system('pip install youtube-transcript-api')
+    
+    os.system('pip install scrapetube')
 
 import json
 
@@ -152,10 +156,9 @@ def secure_music():
 def get_channels_videos():
     
     channelid = request.form['channel']
-    channel = Channel('https://www.youtube.com/channel/'+channelid)
-    print(channel)
+    videos = scrapetube.get_channel(channelid)
     
-    return channel
+    return videos
 
 @app.route('/api/new100')
 
