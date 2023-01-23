@@ -93,7 +93,7 @@ def get_playlist(playlists):
             urls.append(url.split("v=")[1])
 
     
-    res = { id: urls }
+    res = { "id": urls }
     
     return res
 
