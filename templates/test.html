@@ -46,8 +46,6 @@
 
                         var matches = regex.exec(data);
                         var data = matches && matches.length > 1 ? JSON.parse(matches[1]) : false;
-
-                        console.log(data)
                         return data;
                     })
                 }
@@ -60,7 +58,8 @@
                 url:"/api/list/k-hit",
                 success: function (res) {
                     res.forEach(function(id) {
-                        await getvideodata(id)
+                        var res = await getvideodata(id)
+                        return res
                     })
                 }
             })            
@@ -72,7 +71,8 @@
                 url:"/api/top100",
                 success: function (res) {
                     res.forEach(function(id) {
-                        await getvideodata(id)
+                         var res = await getvideodata(id)
+                         return res
                     })
                 }
             })
