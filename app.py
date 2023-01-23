@@ -90,7 +90,11 @@ def get_playlist(playlists):
 
         for url in playlist_urls.videos:
 
-            print(url)
+            data = {"title":url.title,
+                   "url":url.url,
+                   "author":url.author}
+            
+            urls.append(data)
 
     return urls
 
