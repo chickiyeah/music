@@ -58,6 +58,7 @@
                 type: "GET",
                 url:"/api/list/k-hit",
                 success: function (res) {
+                    console.log(res)
                     res.forEach(function(id) {
                         var res = getvideodata(id)
                         return res
