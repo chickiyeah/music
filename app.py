@@ -155,7 +155,7 @@ def get_channels_videos():
     channel = Channel('https://www.youtube.com/channel/'+channelid)
     print(channel)
     
-    return [str('https://www.youtube.com/channel/'+channelid), channel]
+    return channel
 
 @app.route('/api/new100')
 
