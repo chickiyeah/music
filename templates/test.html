@@ -58,7 +58,7 @@
                 url:"/api/list/k-hit",
                 success: function (res) {
                     res.forEach(function(id) {
-                        var res = await getvideodata(id)
+                        var res = getvideodata(id)
                         return res
                     })
                 }
@@ -71,7 +71,7 @@
                 url:"/api/top100",
                 success: function (res) {
                     res.forEach(function(id) {
-                         var res = await getvideodata(id)
+                         var res = getvideodata(id)
                          return res
                     })
                 }
