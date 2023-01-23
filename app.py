@@ -184,6 +184,20 @@ def get_new_song():
 
     return pl_urls
 
+@app.route('/api/musicinfo', methods=['POST'])
+
+def get_musicinfo():
+    url = request.form['id']
+    video = YouTube("https://www.youtube.com/watch?v="+url)
+    res = {
+            "title":video.title,
+            "thumbnail":video.thumbnail_url,
+            "author":video.author,
+            "authorid":video.channel_id
+            }
+    
+    return res
+  
 
 @app.route('/api/list/k-hit')
 
