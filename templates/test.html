@@ -194,7 +194,11 @@
 
                         playingdata = data;
                         console.log(playingdata)
-                        document.getElementById("title").innerText = playingdata.videoDetails.title
+                        try {
+                            document.getElementById("title").innerText = playingdata.videoDetails.title
+                        } catch (err) {
+                            alert("해당 아이디의 유튜브 영상은 존재하지 않습니다.\n유튜브 아이디를 확인해주세요.")
+                        }
 
                         var streams = [],
                             result = {};
