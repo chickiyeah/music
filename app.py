@@ -134,7 +134,7 @@ def get_top_100():
 
     return pl_urls
 
-@app.route('/api/music/errhand', methods=['POST'])
+@app.route('/api/music/get_secure_music', methods=['POST'])
 
 def err_hand():
     url = request.form['url']
