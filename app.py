@@ -29,6 +29,8 @@ try:
     import uyts
     
     from pytube import YouTube
+    
+    from pytube import Channel
 
     from youtubesearchpython import VideosSearch
 
@@ -136,7 +138,7 @@ def get_top_100():
 
 @app.route('/api/music/get_secure_music', methods=['POST'])
 
-def err_hand():
+def secure_music():
     url = request.form['url']
     print("WORK START")
     print(url)
@@ -144,6 +146,15 @@ def err_hand():
     stream = video.streams.filter(type="audio").desc().first().url
     print(stream)
     return str(stream)
+
+@app.route('/api/channel/getvideos', methods=['POST'])
+
+def get_channels_videos():
+    
+    channelid = request.form['channel']
+    channel = Channel('https://www.youtube.com/channel/'+channelid+'/videos')
+    
+    return channel.videos
 
 @app.route('/api/new100')
 
