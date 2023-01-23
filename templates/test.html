@@ -61,7 +61,7 @@
                     console.log(res)
                     for (let i = 0; i < res.length; i++) {
                         console.log(res[i])
-                            var vid = id
+                            var vid = res[i]
 
                             fetch("https://images" + ~~(Math.random() * 33) + "-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=" + encodeURIComponent("https://www.youtube.com/watch?hl=en&v=" + vid)).then(response => {
                                 if (response.ok) {
