@@ -152,7 +152,7 @@ def secure_music():
 def get_channels_videos():
     
     channelid = request.form['channel']
-    channel = Channel('https://www.youtube.com/c/'+channelid+'/videos')
+    channel = Channel('https://www.youtube.com/channel/'+channelid)
     print(channel)
     
     return channel.videos
