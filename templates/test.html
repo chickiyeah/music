@@ -59,6 +59,9 @@
                 url:"/api/list/k-hit",
                 success: function (res) {
                     console.log(res)
+                    for (let i = 0; i < res.length; i++) {
+                        getvideodata(res[i])
+                    }
                     res.forEach(function(id) {
                         var res = getvideodata(id)
                         return res
