@@ -160,7 +160,12 @@ def get_channels_videos():
     channelid = request.form['channel']
     videos = scrapetube.get_channel(channelid)
     
-    return videos
+    res = []
+    for video in videos:
+        res.append(video['videoId'])
+    
+    
+    return res
 
 @app.route('/api/new100')
 
