@@ -29,6 +29,11 @@
             });
         })
         
+        function sleep(ms) {
+          const wakeUpTime = Date.now() + ms;
+          while (Date.now() < wakeUpTime) {}
+        }
+        
         function getvideodata(id) {         
             var vid = id
 
@@ -72,6 +77,7 @@
                                     console.log(res)
                                 }
                             })
+                        
                     }
                 }
             })            
