@@ -63,7 +63,6 @@
                 type: "GET",
                 url:"/api/list/k-hit",
                 success: function (res) {
-                    console.log(res)
                     for (let i = 0; i < res.length; i++) {
                             var vid = res[i]
                             $.ajax({
@@ -88,8 +87,17 @@
                 url:"/api/top100",
                 success: function (res) {
                     res.forEach(function(id) {
-                         var res = getvideodata(id)
-                         return res
+                             $.ajax({
+                                type: "POST",
+                                url:"/api/musicinfo",
+                                data:{
+                                    "id":id
+                                },
+                                success: function (res) {
+                                    console.log(res)
+                                }
+                            })
+                        sleep(25)
                     })
                 }
             })
