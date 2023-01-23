@@ -169,7 +169,6 @@ def get_channels_videos():
     res = []
     for video in videos:
         res.append(video)
-        #dd
     
     
     return res
@@ -193,7 +192,8 @@ def get_musicinfo():
             "title":video.title,
             "thumbnail":video.thumbnail_url,
             "author":video.author,
-            "authorid":video.channel_id
+            "authorid":video.channel_id,
+            "vid":url
             }
     
     return res
