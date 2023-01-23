@@ -83,6 +83,7 @@ import urllib
 def get_playlist(playlists):
 
     urls = []
+    titles = []
 
     for playlist in playlists:
 
@@ -91,9 +92,17 @@ def get_playlist(playlists):
         for url in playlist_urls:
             
             urls.append(url.split("v=")[1])
+            
+        
+        for video in playlist_urls.videos:
+            
+            titles.append(video.title)
 
     
-    res = { "id": urls }
+    
+        
+    
+    res = { "id": urls, "title": titles }
     
     return res
 
