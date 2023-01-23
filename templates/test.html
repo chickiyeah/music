@@ -48,9 +48,9 @@
         var aud= document.getElementById('youtube')
         var dur= document.getElementById('dur')
         
-        function mDur(){dur.max= document.getElementById("youtube").duration}
-        function mPlay(){dur.value=document.getElementById("youtube").currentTime}
-        function mSet(){document.getElementById("youtube").currentTime=dur.value}
+        function mDur(){document.getElementById("dur").max = document.getElementById("youtube").duration}
+        function mPlay(){document.getElementById("dur").value=document.getElementById("youtube").currentTime}
+        function mSet(){document.getElementById("youtube").currentTime = document.getElementById("dur").value}
         
         function musiccard (data) {
             let author = data.author
