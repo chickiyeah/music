@@ -45,6 +45,13 @@
             });
         })
         
+        var aud= document.getElementById('youtube')
+        var dur= document.getElementById('dur')
+        
+        function mDur(){dur.max= aud.duration}
+        function mPlay(){dur.value=aud.currentTime}
+        function mSet(){aud.currentTime=dur.value}
+        
         function musiccard (data) {
             let author = data.author
             let authorid = data.authorid
