@@ -65,6 +65,16 @@ try:
     from art import *
 
     from youtube_transcript_api import YouTubeTranscriptApi
+    
+    firebaseConfig = {
+      apiKey: "AIzaSyCAPx_GfSFjGtWo08nuaPEd0RmWL-ar_-Y",
+      authDomain: "dely-music.firebaseapp.com",
+      projectId: "dely-music",
+      storageBucket: "dely-music.appspot.com",
+      messagingSenderId: "247613470910",
+      appId: "1:247613470910:web:d570f395749ef1da95c6ef",
+      measurementId: "G-2J7WX0YP24"
+    };
 
 except ModuleNotFoundError:
 
