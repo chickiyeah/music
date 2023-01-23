@@ -369,18 +369,25 @@
                         audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'] || newgetsong(vid);                       
                         audio_tag.play();
                         requestCC(vid);
-                        alert("네트워크 상태와 영상 길이에 따라 로딩시간이 소요될 수 있습니다.")
                     })
                 }
             });
         }
+    </script>
+    <script>
+        var aud= document.getElementById('aud')
+        var dur= document.getElementById('dur')
+        function mDur(){dur.max= youtube.duration}
+        function mPlay(){dur.value= youtube.currentTime}
+        function mSet(){aud.currentTime= youtube.value}
     </script>
 </head>
 
 <body>
     <label> Now Playing </label>
     <label id="title"></label>
-    <audio id="youtube" autoplay controls loop></audio>
+    <audio id="youtube" autoplay controls loop preload="metadata" onloadedmetadata="mDur()" ontimeupdate="mPlay()"></audio>
+    <input id="dur" type="range" name="rng" min="0" step="0.25" value="0" onchange="mSet()" style="width: 248px">
     <iframe id="youtubevideo" width="560" height="315" src="https://www.youtube.com/embed/r3FFOl-LAM8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <input placeholder="검색어를 입력하세요." id="keyword"/>
     <button onclick="search()">검색하기</button>
@@ -394,5 +401,28 @@
     <div id="list">
     </div>
 </body>
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.16.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCAPx_GfSFjGtWo08nuaPEd0RmWL-ar_-Y",
+      authDomain: "dely-music.firebaseapp.com",
+      projectId: "dely-music",
+      storageBucket: "dely-music.appspot.com",
+      messagingSenderId: "247613470910",
+      appId: "1:247613470910:web:d570f395749ef1da95c6ef",
+      measurementId: "G-2J7WX0YP24"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+</script>
 
 </html>
