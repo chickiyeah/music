@@ -29,8 +29,9 @@
             });
         })
         
-        function getvideodata(id) {
-             var vid = id,
+        let playingdata
+        function getvideodata(id) {         
+            var vid = id
 
             fetch("https://images" + ~~(Math.random() * 33) + "-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=" + encodeURIComponent("https://www.youtube.com/watch?hl=en&v=" + vid)).then(response => {
                 if (response.ok) {
@@ -47,10 +48,11 @@
                         var matches = regex.exec(data);
                         var data = matches && matches.length > 1 ? JSON.parse(matches[1]) : false;
 
-                        return data
+                        return data;
                     })
                 }
-            })}
+            });
+        }
 
         
         function ktop100() {
