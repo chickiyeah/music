@@ -201,7 +201,7 @@ def get_lyrcis():
 
     cclist = YouTubeTranscriptApi.list_transcripts(video_id)
 
-    try:
+    tr:
 
         cclist.find_manually_created_transcript(['ko'])
 
