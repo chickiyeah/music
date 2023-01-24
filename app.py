@@ -185,7 +185,7 @@ def get_top_100():
 #로그인
 @user_api.route("/User/Login")
 class Login():
-    async def post():
+    def post():
         email = request.form['email']
         password = request.form['password']
         try:
@@ -206,7 +206,7 @@ class Login():
 #
 @user_api.route("/User/Register")
 class Register():
-    async def post():
+    def post():
         now = datetime.now()
         email = request.form['email']
         password = request.form['password']
@@ -269,7 +269,7 @@ class Register():
 #유저 정보 
 @user_api.route("/User")
 class userget():
-    async def post():
+    def post():
         id = request.form['id']
         user = requests.get(
             url='https://2gseogdrb1.execute-api.ap-northeast-2.amazonaws.com/default2/user',
@@ -281,7 +281,7 @@ class userget():
 #아이디 조회
 @app.route("/User/FindID")
 class FindID():
-    async def post():
+    def post():
         name = request.form['name']
         phone = request.form['phone']
         birthday = request.form['birthday']
@@ -303,7 +303,7 @@ class FindID():
 #비번 초기화 이메일 보내기
 @user_api.route("/User/ResetPW")
 class RstPW():
-    async def post():
+    def post():
         email = request.form['email']
 
 
@@ -320,7 +320,7 @@ class RstPW():
 #유저 삭제
 @user_api.route("/User")
 class deleteuser():
-    async def delete():
+    def delete():
         id = request.form['id']
         email = request.form['email']
 
