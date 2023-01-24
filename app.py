@@ -15,7 +15,7 @@ try:
     app = Flask(__name__)
     api = Api(app, version='1.0', title='API 문서', description="DELIMUSIC API 문서", doc="/api/docs")
     
-    user_api = api.namespace('user', description='유저 API')
+    
     CORS(app, resources={r'*': {'origins': '*'}})
 
 except ModuleNotFoundError:
@@ -106,6 +106,8 @@ except ModuleNotFoundError:
 import json
 
 import urllib
+
+user_api = api.namespace('user', description='유저 API')
 
 def get_playlist(playlists):
 
