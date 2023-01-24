@@ -184,155 +184,161 @@ def get_top_100():
 
 #로그인
 @user_api.route("/User/Login")
-async def post():
-    email = request.form['email']
-    password = request.form['password']
-    try:
-        Auth.sign_in_with_email_and_password(email, password)
-    except requests.exceptions.HTTPError as erra:
-        #HTTP 에러가 발생한 경우
-        #오류 가져오기 json.loads(str(erra).split("]")[1].split('"errors": [\n')[1])['message']
-        return json.loads(str(erra).split("]")[1].split('"errors": [\n')[1])['message']
+class Login():
+    async def post():
+        email = request.form['email']
+        password = request.form['password']
+        try:
+            Auth.sign_in_with_email_and_password(email, password)
+        except requests.exceptions.HTTPError as erra:
+            #HTTP 에러가 발생한 경우
+            #오류 가져오기 json.loads(str(erra).split("]")[1].split('"errors": [\n')[1])['message']
+            return json.loads(str(erra).split("]")[1].split('"errors": [\n')[1])['message']
 
-    currentuser = Auth.current_user
-    user = requests.get(
-        url='https://2gseogdrb1.execute-api.ap-northeast-2.amazonaws.com/default2/user',
-        json={'Id':currentuser['localId']}
-    )
-    user.encoding = "UTF-8"
-    return json.loads(user.text)['id']
+        currentuser = Auth.current_user
+        user = requests.get(
+            url='https://2gseogdrb1.execute-api.ap-northeast-2.amazonaws.com/default2/user',
+            json={'Id':currentuser['localId']}
+        )
+        user.encoding = "UTF-8"
+        return json.loads(user.text)['id']
 
 #
 @user_api.route("/User/Register")
-async def post():
-    now = datetime.now()
-    email = request.form['email']
-    password = request.form['password']
-    nickname = request.form['nickname']
-    #이메일이 공란이면
-    if(len(email) == 0):
-        return "MISSING_EMAIL"
+class Register():
+    async def post():
+        now = datetime.now()
+        email = request.form['email']
+        password = request.form['password']
+        nickname = request.form['nickname']
+        #이메일이 공란이면
+        if(len(email) == 0):
+            return "MISSING_EMAIL"
 
-    #비번이 공란이면
-    if(len(password) == 0):
-        return "MISSING_PASSWORD"
-    else:
-        #비번이 6자리 이하이면
-        if(len(password) <= 6):
-            return "PASSWORD_TOO_SHORT"
+        #비번이 공란이면
+        if(len(password) == 0):
+            return "MISSING_PASSWORD"
         else:
-            #비번에 4글자이상 중복되는 글자가 있으면
-            if(re.search('(([a-zA-Z0-9])\\2{5,})', password)):
-                return "TOO_MANY_DUPICATE"
+            #비번이 6자리 이하이면
+            if(len(password) <= 6):
+                return "PASSWORD_TOO_SHORT"
+            else:
+                #비번에 4글자이상 중복되는 글자가 있으면
+                if(re.search('(([a-zA-Z0-9])\\2{5,})', password)):
+                    return "TOO_MANY_DUPICATE"
 
 
-    #닉네임이 공란이면
-    if(len(nickname) == 0):
-        return "MISSING_NICKNAME"
+        #닉네임이 공란이면
+        if(len(nickname) == 0):
+            return "MISSING_NICKNAME"
 
 
 
-    try:
-        #파이어베이스의 유저만드는거 사용
-        a = Auth.create_user_with_email_and_password(email, password)
-    except requests.exceptions.HTTPError as erra:
-        #HTTP 에러가 발생한 경우
-        #오류 가져오기 json.loads(str(erra).split("]")[1].split('"errors": [\n')[1])['message']
-        return json.loads(str(erra).split("]")[1].split('"errors": [\n')[1])['message']
+        try:
+            #파이어베이스의 유저만드는거 사용
+            a = Auth.create_user_with_email_and_password(email, password)
+        except requests.exceptions.HTTPError as erra:
+            #HTTP 에러가 발생한 경우
+            #오류 가져오기 json.loads(str(erra).split("]")[1].split('"errors": [\n')[1])['message']
+            return json.loads(str(erra).split("]")[1].split('"errors": [\n')[1])['message']
 
-    #유저의 고유 아이디 (UniqueID)
-    id = a['localId']
-    data = {
-        'email':email,
-        'Id':id,
-        'Nickname':nickname,
-        'Created_At':str(now)
-    }
-    try:
-        c = requests.post(
-            url = 'https://2gseogdrb1.execute-api.ap-northeast-2.amazonaws.com/default2/user',
-            json=data
-        )._content
-    except requests.exceptions.RequestException as erra:
-        print( erra)
-        return erra
-    
+        #유저의 고유 아이디 (UniqueID)
+        id = a['localId']
+        data = {
+            'email':email,
+            'Id':id,
+            'Nickname':nickname,
+            'Created_At':str(now)
+        }
+        try:
+            c = requests.post(
+                url = 'https://2gseogdrb1.execute-api.ap-northeast-2.amazonaws.com/default2/user',
+                json=data
+            )._content
+        except requests.exceptions.RequestException as erra:
+            print( erra)
+            return erra
+        
 
-    if(str(c).split("\"")[1].split("\"")[0] == "Status Code : 200 | OK : Successfully added data "):
-        return "OK"
-    
-    print(c)
-    return c['errorMessage']
+        if(str(c).split("\"")[1].split("\"")[0] == "Status Code : 200 | OK : Successfully added data "):
+            return "OK"
+        
+        print(c)
+        return c['errorMessage']
 
 #유저 정보 
 @user_api.route("/User")
-async def post():
-    id = request.form['id']
-    user = requests.get(
-        url='https://2gseogdrb1.execute-api.ap-northeast-2.amazonaws.com/default2/user',
-        json={'Id':id}
-    )
-    user.encoding = "UTF-8"
-    return json.loads(user.text)
+class userget():
+    async def post():
+        id = request.form['id']
+        user = requests.get(
+            url='https://2gseogdrb1.execute-api.ap-northeast-2.amazonaws.com/default2/user',
+            json={'Id':id}
+        )
+        user.encoding = "UTF-8"
+        return json.loads(user.text)
 
 #아이디 조회
-@app.route("/User/FindID", methods=["POST"])
-async def FindID():
-    name = request.form['name']
-    phone = request.form['phone']
-    birthday = request.form['birthday']
+@app.route("/User/FindID")
+class FindID():
+    async def post():
+        name = request.form['name']
+        phone = request.form['phone']
+        birthday = request.form['birthday']
 
-    json1 = {
-        'name' : name,
-        'phone' : phone,
-        'birthday' : birthday
-    }
+        json1 = {
+            'name' : name,
+            'phone' : phone,
+            'birthday' : birthday
+        }
 
-    ID = requests.get(
-        url='https://2gseogdrb1.execute-api.ap-northeast-2.amazonaws.com/default2/user/findid',
-        json=json1
-    )
-    ID.encoding = "UTF-8"
-    
-    return json.loads(ID.text)
+        ID = requests.get(
+            url='https://2gseogdrb1.execute-api.ap-northeast-2.amazonaws.com/default2/user/findid',
+            json=json1
+        )
+        ID.encoding = "UTF-8"
+        
+        return json.loads(ID.text)
 
 #비번 초기화 이메일 보내기
 @user_api.route("/User/ResetPW")
-async def post():
-    email = request.form['email']
+class RstPW():
+    async def post():
+        email = request.form['email']
 
 
-    try:
-        Auth.send_password_reset_email(email)
-    except requests.exceptions.HTTPError as err:
-        #print(json.loads(str(err).split("]")[1].split('"errors": [\n')[1])['message'])
-        return json.loads(str(err).split("]")[1].split('"errors": [\n')[1])['message']
+        try:
+            Auth.send_password_reset_email(email)
+        except requests.exceptions.HTTPError as err:
+            #print(json.loads(str(err).split("]")[1].split('"errors": [\n')[1])['message'])
+            return json.loads(str(err).split("]")[1].split('"errors": [\n')[1])['message']
 
 
 
-    return "DONE"
+        return "DONE"
 
 #유저 삭제
 @user_api.route("/User")
-async def delete():
-    id = request.form['id']
-    email = request.form['email']
+class deleteuser():
+    async def delete():
+        id = request.form['id']
+        email = request.form['email']
 
 
-    json1 = {
-        'id':id,
-        'email':email
-    }
-    try:
-        res = requests.delete(
-            url='https://2gseogdrb1.execute-api.ap-northeast-2.amazonaws.com/default2/user',
-            json=json1
-        )
-    except requests.exceptions.RequestException as error:
-        return error
+        json1 = {
+            'id':id,
+            'email':email
+        }
+        try:
+            res = requests.delete(
+                url='https://2gseogdrb1.execute-api.ap-northeast-2.amazonaws.com/default2/user',
+                json=json1
+            )
+        except requests.exceptions.RequestException as error:
+            return error
 
-    auth.delete_user(id)
-    return "OK"
+        auth.delete_user(id)
+        return "OK"
 
 #유저 관리 끝
 
