@@ -9,20 +9,21 @@ try:
     import flask_cors
     
     from flask_cors import CORS, cross_origin
-
     from flask import Flask, render_template, request
+    from flask_restx import Api, Resource, reqparse
 
     app = Flask(__name__)
+    api = Api(app, version='1.0', title='API 문서', description="DELIMUSIC API 문서", doc="/api/docs")
     
+    user_api = api.namespace('user', description='유저 API')
     CORS(app, resources={r'*': {'origins': '*'}})
 
 except ModuleNotFoundError:
 
     os.system('pip install flask')
-
     os.system('pip install flask[async]')
-    
     os.system('pip install flask_cors')
+    os.system('pip install flask_restx')
     
     import flask_cors
     
@@ -180,8 +181,8 @@ def get_top_100():
 #유저 관리구역 시작
 
 #로그인
-@app.route("/User/Login", methods=["POST"])
-async def user_login():
+@user_api.route("/User/Login")
+async def post():
     email = request.form['email']
     password = request.form['password']
     try:
@@ -200,15 +201,12 @@ async def user_login():
     return json.loads(user.text)['id']
 
 #
-@app.route("/User/Register", methods=["POST"])
-async def user_create():
+@user_api.route("/User/Register")
+async def post():
     now = datetime.now()
     email = request.form['email']
     password = request.form['password']
-    birthday = request.form['birthday']
-    phone = request.form['phone']
     nickname = request.form['nickname']
-    name = request.form['name']
     #이메일이 공란이면
     if(len(email) == 0):
         return "MISSING_EMAIL"
@@ -244,13 +242,9 @@ async def user_create():
     id = a['localId']
     data = {
         'email':email,
-        'Birthday':birthday,
-        'Phone':phone,
         'Id':id,
         'Nickname':nickname,
-        'Name':name,
-        'Created_At':str(now),
-        'Last_Login_At':str(now)
+        'Created_At':str(now)
     }
     try:
         c = requests.post(
@@ -269,8 +263,8 @@ async def user_create():
     return c['errorMessage']
 
 #유저 정보 
-@app.route("/User", methods=["POST"])
-async def get_user():
+@user_api.route("/User")
+async def post():
     id = request.form['id']
     user = requests.get(
         url='https://2gseogdrb1.execute-api.ap-northeast-2.amazonaws.com/default2/user',
@@ -301,8 +295,8 @@ async def FindID():
     return json.loads(ID.text)
 
 #비번 초기화 이메일 보내기
-@app.route("/User/ResetPW", methods=["POST"])
-async def RSTPW():
+@user_api.route("/User/ResetPW")
+async def post():
     email = request.form['email']
 
 
@@ -317,16 +311,14 @@ async def RSTPW():
     return "DONE"
 
 #유저 삭제
-@app.route("/User", methods=["DELETE"])
-async def deleteuser():
+@user_api.route("/User")
+async def delete():
     id = request.form['id']
-    phone = request.form['phone']
     email = request.form['email']
 
 
     json1 = {
         'id':id,
-        'phone':phone,
         'email':email
     }
     try:
