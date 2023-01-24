@@ -2,10 +2,6 @@ import os
 
 import subprocess
 
-import requests
-
-import scrapetube
-
 app = ""
 
 try:
@@ -45,6 +41,8 @@ try:
     from firebase_admin import credentials
     from firebase_admin import storage
     from firebase import Firebase
+
+    import requests
     
     import scrapetube
     
