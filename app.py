@@ -10,12 +10,13 @@ try:
     
     from flask_cors import CORS, cross_origin
     from flask import Flask, render_template, request
-    from flask_restx import Api, Resource, reqparse
+    
+    #from flask_restx import Api, Resource, reqparse
 
     app = Flask(__name__)
-    api = Api(app, version='1.0', title='API 문서', description="DELIMUSIC API 문서", doc="/api/docs")
+    #api = Api(app, version='1.0', title='API 문서', description="DELIMUSIC API 문서", doc="/api/docs")
     
-    user_api = api.namespace('user', description='유저 API')
+    #user_api = api.namespace('user', description='유저 API')
     CORS(app, resources={r'*': {'origins': '*'}})
 
 except ModuleNotFoundError:
@@ -31,13 +32,7 @@ except ModuleNotFoundError:
 
     from flask import Flask, render_template, request
 
-    from flask_restx import Api, Resource, reqparse
-
     app = Flask(__name__)
-    api = Api(app, version='1.0', title='API 문서', description="DELIMUSIC API 문서", doc="/api/docs")
-    
-    user_api = api.namespace('user', description='유저 API')
-    CORS(app, resources={r'*': {'origins': '*'}})
     
     CORS(app, resources={r'*': {'origins': '*'}})
 
@@ -185,12 +180,7 @@ def get_top_100():
     return pl_urls
 
 #유저 관리구역 시작
-@user_api.route("/user/aaa")
-class test(Resource):
-    @staticmethod
-    def post():
-        return "userdata"
-    
+
 #로그인
 @app.route("/User/Login", methods=["POST"])
 async def user_login():
