@@ -1,0 +1,66 @@
+/*전체 css 연결 */
+@import url(../css/header.css);
+@import url(../css/footer.css);
+
+* {
+    box-sizing: border-box;
+}
+
+.detail_wrap {
+    padding-top: 33vw;
+    margin-bottom: 10vh;
+}
+
+.detail_container {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    color: #fff;
+}
+
+.img_container {
+    width: 80%;
+}
+
+.img_container img {
+    border-radius: 10px;
+}
+
+.music_info {
+    padding: 20px;
+    text-align: center;
+}
+
+.music_info h4 {
+    font-size: 23px;
+    letter-spacing: 1px;
+}
+
+.music_info h5 {
+    font-size: 14px;
+    letter-spacing: 1px;
+}
+
+.navigation {
+    background: #841dd3ac;
+    padding: 5px 25px;
+    border-radius: 20px;
+}
+
+.navigation button {
+    background: transparent;
+    margin: 5px;
+}
+
+.navigation button i {
+    font-size: 20px;
+    margin: 0 5px;
+    color: #fff;
+}
+
+.music_txt {
+    width: 80%;
+    text-align: center;
+    margin: 30px;
+    opacity: 80%;
+}

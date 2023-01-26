@@ -1,0 +1,52 @@
+/*전체 css 연결 */
+@import url(../css/header.css);
+@import url(../css/footer.css);
+
+* {
+    box-sizing: border-box;
+}
+
+.join_wrap {
+    padding-top: 46.5vw;
+}
+
+.info_wrap {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    color: #fff;
+}
+
+.info_wrap label {
+    font-size: 12px;
+}
+
+.info_wrap input {
+    border-radius: 20px;
+    background: transparent;
+    border: 1px solid #fff;
+    padding: 5px;
+    width: 290px;
+    color: #fff;
+    margin: 3px;
+    font-size: 12px;
+    padding: 9px;
+}
+
+.sbmit_wrap {
+    margin-top: 10px;
+}
+
+.sbmit_wrap .sbmit_bt {
+    text-align: center;
+}
+
+.sbmit_wrap .sbmit_bt button {
+    padding: 8px;
+    width: 100%;
+    border-radius: 20px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    width: 290px;
+}

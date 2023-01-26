@@ -1,0 +1,44 @@
+/*전체 css 연결 */
+@import url(../css/header.css);
+@import url(../css/footer.css);
+
+* {
+    box-sizing: border-box;
+}
+
+.profile_wrap {
+    padding-top: 35vw;
+}
+
+.info_wrap {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.profile_img {
+    width: 50%;
+}
+
+.profile_txt {
+    color: #fff;
+    text-align: center;
+}
+
+.profile_txt .nickname {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.profile_txt label {
+    background: #841dd3ac;
+    color: #fff;
+    padding: 6px 18px;
+    border-radius: 10px;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+.profile_txt input {
+    display: none;
+}

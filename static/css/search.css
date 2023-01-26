@@ -1,0 +1,39 @@
+/*전체 css 연결 */
+@import url(../css/header.css);
+@import url(../css/footer.css);
+
+* {
+    box-sizing: border-box;
+}
+
+.search_wrap {
+    padding-top: 60vw;
+}
+
+.info_wrap .search_input {
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+}
+
+.info_wrap .search_input input {
+    border-radius: 20px;
+    background: transparent;
+    border: 1px solid #fff;
+    padding: 5px;
+    width: 290px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 12px;
+    padding: 9px;
+}
+
+.info_wrap .search_input button {
+    padding: 8px;
+    width: 100%;
+    border-radius: 20px;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    width: 290px;
+}

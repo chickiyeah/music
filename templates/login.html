@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- css -->
+    <link rel="stylesheet" href="../static/css/reset.css">
+    <link rel="stylesheet" href="../static/css/login.css">
+
+    <!-- 외부 아이콘 -->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
+    <title>DELI</title>
+</head>
+
+<body>
+    <header>
+        <nav class="nav">
+            <div class="nav_left">
+                <a href="./index.html">
+                    <h1>DELI</h1>
+                </a>
+            </div>
+            <!-- 프로필 -->
+            <div class="nav_right">
+                <div class="nav_img">
+                    <img src="../static/assets/image/profile3.png" alt="프로필사진">
+                </div>
+                <div class="nav_icon">
+                    <i class="xi-user-o"></i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <div class="login_wrap">
+            <div class="info_wrap">
+                <div class="userid">
+                    <label for="userid">이메일</label>
+                    <div>
+                        <input id="userid" type="text" autocomplete="on" name="userId">
+                    </div>
+                </div>
+                <div class="userpw">
+                    <label for="password">비밀번호</label>
+                    <div class="">
+                        <input id="password" type="password" autocomplete="current-password" name="password">
+                    </div>
+                </div>
+                <div class="sbmit_wrap">
+                    <div class="sbmit_bt">
+                        <button type="submit">로그인</button>
+                    </div>
+                    <p class="join_wrap">
+                        <span>회원이 아니라면? <a href="./join.html" target="_blank"><b>회원가입</b></a></span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

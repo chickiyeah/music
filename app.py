@@ -1,3 +1,4 @@
+import datetime
 import os
 
 import subprocess
@@ -108,6 +109,10 @@ import json
 
 import urllib
 
+import youtube_transcript_api
+from pytube import YouTube
+from youtube_transcript_api import YouTubeTranscriptApi
+
 def get_playlist(playlists):
 
     urls = []
@@ -124,12 +129,36 @@ def get_playlist(playlists):
     
     return urls
 
-# search_results = ytmusic.search("이세계아이돌", "albums")
+# search_results = ytmusic.search("뉴진스", "albums")
 
 # print(search_results)
 
+#HTLM 뿌리는곳
 @app.route('/')
+def index():
+    return render_template("index.html")
 
+@app.route('/Register')
+def join():
+    return render_template("join.html")
+
+@app.route('/list/khot')
+def khot():
+    return render_template("khot.html")
+
+@app.route('/Login')
+def login():
+    return render_template("login.html")
+
+@app.route('/Profile')
+def profile():
+    return render_template("profile.html")
+
+@app.route('/Search')
+def search():
+    return render_template("search.html")
+
+@app.route("/test")
 def hello_world():  # put application's code here
 
     """search = ytmusic.search("we're good", ["songs"], limit=2)
@@ -168,6 +197,7 @@ def hello_world():  # put application's code here
             desc.append(data['descriptionSnippet'])"""
 
     return render_template("test.html")
+# HTML 뿌리는곳 끝
 
 #국내 탑 100
 @app.route('/api/top100')

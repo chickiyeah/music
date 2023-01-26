@@ -1,0 +1,32 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: absolute;
+    color: #fff;
+    font-family: 'Permanent Marker', cursive;
+    padding: 35px 25px;
+    width: 100%;
+}
+
+.nav_left {
+    width: 100%;
+}
+
+.nav_left h1 {
+    font-size: 33px;
+}
+
+.nav_right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+.nav_img {
+    width: 20%;
+}
+
+.nav_icon {
+    display: none;
+}
