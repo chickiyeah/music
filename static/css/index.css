@@ -12,6 +12,12 @@
     justify-content: center;
 }
 
+#best_img {
+    width: 85%;
+    height:auto;
+    margin: 10px;
+}
+
 /* 공통 부모들 */
 .bgm_warp,
 .best_wrap,
@@ -48,6 +54,18 @@
     letter-spacing: -1px;
     line-height: 25px;
     text-align: center;
+}
+
+.best_title {
+    display: flex;
+    justify-content: center;
+}
+
+.best_link {
+    display: block;
+    align-self: center;
+    margin-left: 20px;
+    font-size: 25px;
 }
 
 p {

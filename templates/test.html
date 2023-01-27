@@ -106,6 +106,7 @@
                 type: "GET",
                 url:"/api/list/k-hit",
                 success: function (res) {
+                    
                     for (let i = 0; i < res.length; i++) {
                             var vid = res[i]
                             $.ajax({
@@ -284,11 +285,16 @@
                     "url" : vid
                 },
                 success: function (response) {
-                    console.log("LoadComplete")                                    
-                    audio_tag.src = response;
-                    audio_tag.play()
-                    video_tag.src = "https://www.youtube.com/embed/"+vid
-                    return response
+                    if(response != "This Video is Live Stream"){
+                console.log("LoadComplete")
+                audio_tag.src = response;
+                audio_tag.play()
+                video_tag.src = "https://www.youtube.com/embed/" + vid
+                return response
+            }else{
+                console.log("Load Failed Reason: This Video is Live Stream")
+                alert("이 영상을 재생할수 없습니다.\n사유: 이 영상은 실시간 스트리밍입니다.")
+            }
                 }
             })
         }

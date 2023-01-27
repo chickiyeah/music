@@ -3,6 +3,8 @@ import os
 
 import subprocess
 
+from pytube.extract import LiveStreamError
+
 app = ""
 
 try:
@@ -110,8 +112,10 @@ import json
 import urllib
 
 import youtube_transcript_api
+import pytube
 from pytube import YouTube
 from youtube_transcript_api import YouTubeTranscriptApi
+from pytube import Playlist
 
 def get_playlist(playlists):
 
@@ -121,7 +125,13 @@ def get_playlist(playlists):
     for playlist in playlists:
 
         playlist_urls = Playlist(playlist)
+
+        thumbnail = playlist_urls.sidebar_info[0]['playlistSidebarPrimaryInfoRenderer']['thumbnailRenderer']['playlistCustomThumbnailRenderer']['thumbnail']['thumbnails'][0]['url']
         
+        print(thumbnail)
+        urls.append(thumbnail)
+
+
         for url in playlist_urls:
 
             urls.append(url.split("v=")[1])
@@ -134,9 +144,17 @@ def get_playlist(playlists):
 # print(search_results)
 
 #HTLM 뿌리는곳
-@app.route('/')
+@app.route('/player')
+def player():
+    return render_template("player.html")
+
+@app.route('/index')
 def index():
     return render_template("index.html")
+
+@app.route('/')
+def main():
+    return render_template("main.html")
 
 @app.route('/Register')
 def join():
@@ -157,6 +175,10 @@ def profile():
 @app.route('/Search')
 def search():
     return render_template("search.html")
+
+@app.route('/detail')
+def detail():
+    return render_template("detail.html")
 
 @app.route("/test")
 def hello_world():  # put application's code here
@@ -368,10 +390,13 @@ async def deleteuser():
 #보안 암호화된 영상 가져오기 (Pytube)
 @app.route('/api/music/get_secure_music', methods=['POST'])
 def secure_music():
-    url = request.form['url']
-    video = YouTube("https://www.youtube.com/watch?v="+url)
-    stream = video.streams.filter(type="audio").desc().first().url
-    return str(stream)
+    try:
+        url = request.form['url']
+        video = YouTube("https://www.youtube.com/watch?v="+url)
+        stream = video.streams.filter(type="audio").desc().first().url
+        return str(stream)
+    except LiveStreamError:
+        return "This Video is Live Stream"
 
 #특정 채널의 영상목록을 모두 받아온다
 @app.route('/api/channel/getvideos', methods=['POST'])

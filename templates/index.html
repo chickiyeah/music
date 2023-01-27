@@ -18,32 +18,18 @@
         integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
-    <script defer src="./js/slider.js"></script>
+    <script defer src="../static/js/slider.js"></script>
+    <script defer src="../static/js/index.js"></script>
 
     <title>DELI</title>
 
 </head>
 
-<script>
-    $.ajax({
-        type: "GET", // - POST 요청
-        url: "/api/new100", // - 요청주소
-        data: { // - 전송할 데이터
-            "bgm": bgm
-        },
-        success: function (response) { // - 요청이 성공하면
-            console.log(response)
-            console.log("SuccessfullyAllVideosForThisbgm")
-            returnresponse
-        }
-    })
-</script>
-
 <body>
     <header>
         <nav class="nav">
             <div class="nav_left">
-                <a href="index.html">
+                <a href="/index">
                     <h1>DELI</h1>
                 </a>
             </div>
@@ -86,22 +72,21 @@
                     </div>
                 </div>
             </section>
+            
             <section class="best_wrap">
-                <div class="best_title">
-                    <span>인기차트 <em>top 100</em></span>
-                    <p>이 느낌 이 대로 이어가기 🎧</p>
+                <div class="best_title" onclick="window.location.href='/list/khot'">
+                    <div>
+                        <span>인기차트 <em>top 100</em></span>
+                        <p>이 느낌 이 대로 이어가기 🎧</p>
+                    </div>
+                    <div>
+                        <span class="best_link">></span>
+                    </div>
                 </div>
                 <div class="swiper-container bestSwiper best_list">
                     <div class="swiper-wrapper">
-                        <ul class="swiper-slide list">
-                            <li><img src="../static/assets/image/best01.png" alt="인기차트 이미지"></li>
-                            <li><img src="../static/assets/image/best02.png" alt="인기차트 이미지"></li>
-                            <li><img src="../static/assets/image/best03.png" alt="인기차트 이미지"></li>
-                        </ul>
-                        <ul class="swiper-slide list">
-                            <li><img src="../static/assets/image/best01.png" alt="인기차트 이미지"></li>
-                            <li><img src="../static/assets/image/best02.png" alt="인기차트 이미지"></li>
-                            <li><img src="../static/assets/image/best03.png" alt="인기차트 이미지"></li>
+                        <ul id="ktop100" class="swiper-slide list">
+                            <!-- index.js ktop100() -->
                         </ul>
                         <!-- <div class="swiper-pagination"></div> -->
                     </div>
