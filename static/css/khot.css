@@ -26,7 +26,6 @@
 .list_content {
     display: flex;
     flex-flow: row;
-    justify-content: center;
     width: 90%;
     position: relative;
     margin-bottom: 10px;
@@ -45,9 +44,11 @@
     opacity: 30%;
 }
 
-.list_content .list_img {
+.list_content .list_img img {
     margin-right: 5px;
     border-radius: 20px;
+    width: 139px;
+    justify-content: left;
 }
 
 .list_info {

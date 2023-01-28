@@ -24,20 +24,31 @@ async function khit() {
         url: "/api/list/k-hit",
         success: function (res) {
             console.log("thumbnail : ", res[0])
-            for (let i = 0; i < 3; i++) {
-                var vid = res[getRandomIntInclusive(1, 100)]
-                $.ajax({
-                    type: "POST",
-                    url: "/api/musicinfo",
-                    data: {
-                        "id": vid
-                    },
-                    success: function (res) {
-                        let card = `<li><img onclick="play('${res.vid}')" id="best_img" src="${res.thumbnail}" alt="${res.title}"></li>`
-                        $("#ktop100").append(card)
-                    }
-                })
+            let cardall = ""
+            for (let i = 0; i < 2; i++) { // 스와이퍼 갯수
+                for (let j = 0; j < 3; j++) { // 스와이퍼 하나당 표시할 갯수                    
+                    var vid = res[(((i+1)*3+1)-(5-(j+1)))]                
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/musicinfo",
+                        data: {
+                            "id": vid
+                        },
+                        success: function (res) {
+                            console.log(res)
+                            let card = `<li><img onclick="play('${res.vid}')" id="best_img" src="${res.thumbnail}" alt="${res.title}"></li>`
+                            $(`#ktop${i}`).append(card)
+                        }
+                    })
+                }
+                sleep(25)
+                cardall = cardall + `
+                            <ul id="ktop${i}" class="swiper-slide list">
+                            </ul>
+                            `
+                
             }
+            $("#swiper").append(cardall)
         }
     })
 }

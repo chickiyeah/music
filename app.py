@@ -126,12 +126,6 @@ def get_playlist(playlists):
 
         playlist_urls = Playlist(playlist)
 
-        thumbnail = playlist_urls.sidebar_info[0]['playlistSidebarPrimaryInfoRenderer']['thumbnailRenderer']['playlistCustomThumbnailRenderer']['thumbnail']['thumbnails'][0]['url']
-        
-        print(thumbnail)
-        urls.append(thumbnail)
-
-
         for url in playlist_urls:
 
             urls.append(url.split("v=")[1])
@@ -417,6 +411,16 @@ def get_channels_videos():
 def get_new_song():
 
     playlist = ['https://www.youtube.com/playlist?list=RDCLAK5uy_mVBAam6Saaqa_DeJRxGkawqqxwPTBrGXM']
+
+    pl_urls = get_playlist(playlist)
+
+    return pl_urls
+
+#국내 인기 급상승 MV 20
+@app.route('/api/surgevideo20')
+def get_surge_video_20():
+
+    playlist = ['https://www.youtube.com/playlist?list=PLmtapKaZsgZsjfcjrumAR4KVu5LDDeugN']
 
     pl_urls = get_playlist(playlist)
 

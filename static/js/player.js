@@ -71,7 +71,6 @@ function requestCC(id) {
 
 function newgetsong(id) {
     let audio_tag = document.getElementById('youtube');
-    let video_tag = document.getElementById('youtubevideo');
     let vid = id
     console.log("Loading...")
     $.ajax({

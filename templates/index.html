@@ -16,6 +16,7 @@
     <!-- 제이쿼리 CDN -->
     <script src="https://code.jquery.com/jquery-3.6.3.js"
         integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
     <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css">
     <script defer src="../static/js/slider.js"></script>
@@ -74,23 +75,21 @@
             </section>
             
             <section class="best_wrap">
-                <div class="best_title" onclick="window.location.href='/list/khot'">
+                <div class="best_title">
                     <div>
                         <span>인기차트 <em>top 100</em></span>
                         <p>이 느낌 이 대로 이어가기 🎧</p>
                     </div>
-                    <div>
-                        <span class="best_link">></span>
-                    </div>
                 </div>
                 <div class="swiper-container bestSwiper best_list">
-                    <div class="swiper-wrapper">
-                        <ul id="ktop100" class="swiper-slide list">
-                            <!-- index.js ktop100() -->
-                        </ul>
+                    <div class="swiper-wrapper" id="swiper">
+
                         <!-- <div class="swiper-pagination"></div> -->
                     </div>
                 </div>
+                <div class="best_title" onclick="window.location.href='/list/khot?page=khit'">
+                    <span>더보기</span>
+                </div>  
             </section>
             <section class="global_wrap">
                 <div class="global_title">
