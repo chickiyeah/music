@@ -391,6 +391,16 @@ def secure_music():
         return str(stream)
     except LiveStreamError:
         return "This Video is Live Stream"
+    
+@app.route('/api/music/get_secure_video', methods=['POST'])
+def secure_video():
+    try:
+        url = request.form['url']
+        video = YouTube("https://www.youtube.com/watch?v="+url)
+        stream = video.streams.filter(progressive=True).desc().first().url        
+        return str(stream)
+    except LiveStreamError:
+        return "This Video is Live Stream"
 
 #특정 채널의 영상목록을 모두 받아온다
 @app.route('/api/channel/getvideos', methods=['POST'])

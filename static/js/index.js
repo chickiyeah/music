@@ -15,6 +15,7 @@ function play(code) {
 
 $(document).ready(function () {
     khit()
+    ksurgevid20()
 })
 
 
@@ -23,7 +24,6 @@ async function khit() {
         type: "GET",
         url: "/api/list/k-hit",
         success: function (res) {
-            console.log("thumbnail : ", res[0])
             let cardall = ""
             for (let i = 0; i < 2; i++) { // 스와이퍼 갯수
                 for (let j = 0; j < 3; j++) { // 스와이퍼 하나당 표시할 갯수                    
@@ -35,7 +35,6 @@ async function khit() {
                             "id": vid
                         },
                         success: function (res) {
-                            console.log(res)
                             let card = `<li><img onclick="play('${res.vid}')" id="best_img" src="${res.thumbnail}" alt="${res.title}"></li>`
                             $(`#ktop${i}`).append(card)
                         }
@@ -48,7 +47,42 @@ async function khit() {
                             `
                 
             }
-            $("#swiper").append(cardall)
+            $("#k-hit_swiper").append(cardall)
+        }
+    })
+}
+
+async function ksurgevid20() {
+    $.ajax({
+        type: "GET",
+        url: "/api/surgevideo20",
+        success: function (res) {
+            let cardall = ""
+            for (let i = 0; i < 2; i++) { // 스와이퍼 갯수
+                for (let j = 0; j < 2; j++) { // 스와이퍼 하나당 표시할 갯수                    
+                    var vid = res[(((i+1)*3+1)-(5-(j+1)))]          
+                    console.log(j)      
+                    $.ajax({
+                        type: "POST",
+                        url: "/api/musicinfo",
+                        data: {
+                            "id": vid
+                        },
+                        success: function (res) {
+                            let card = `<li><img onclick="play('${res.vid}')" id="global_img" src="${res.thumbnail}" alt="${res.title}"></li>`
+                            $(`#ksurgevid${i}`).append(card)
+                        }
+                    })
+                }
+                sleep(25)
+                cardall = `
+                            <ul id="ksurgevid${i}" class="swiper-slide list">
+                            </ul>
+                            `
+                
+                            $("#ksurgevid_swiper").append(cardall)
+            }
+            
         }
     })
 }

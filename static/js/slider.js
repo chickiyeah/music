@@ -20,6 +20,7 @@ $(function () {
   });
   // movie 20 스와이퍼
   var globalSwiper = new Swiper(".globalSwiper", {
+    direction:"horizontal",
     loop: true,
     slidesPerView: "auto",
     spaceBetween: 30,

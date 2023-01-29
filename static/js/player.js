@@ -142,8 +142,6 @@ function youtube(id) {
                 streams.forEach(function (stream, n) {
                     var itag = stream.itag * 1,
                         quality = false;
-                    console.log(itag)
-                    console.log(stream);
                     switch (itag) {
                         case 18:
                             quality = "380P";

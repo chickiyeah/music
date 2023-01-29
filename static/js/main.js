@@ -21,5 +21,4 @@ function browse(url) {
 function play(code) {
     $('#Player').get(0).contentWindow.youtube(code)
     toast("서버에 재생을 요청했습니다.\n잠시만 기다려주세요.")
-    console.log(code)
 }

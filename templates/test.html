@@ -10,7 +10,7 @@
     <!-- 제이쿼리 -->
     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
         integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
-    
+
     <style>
         .list_content {
             font-size: 16px;
@@ -29,8 +29,8 @@
 
     <script>
         $(document).ready(function () {
-        const el = document.createElement('div');
-        document.body.appendChild(el);
+            const el = document.createElement('div');
+            document.body.appendChild(el);
 
             eruda.init({
                 container: el,
@@ -44,21 +44,44 @@
                 }
             });
         })
-        
-        var aud= document.getElementById('youtube')
-        var dur= document.getElementById('dur')
-        
-        function mDur(){document.getElementById("dur").max = document.getElementById("youtube").duration}
-        function mPlay(){document.getElementById("dur").value=document.getElementById("youtube").currentTime}
-        function mSet(){document.getElementById("youtube").currentTime = document.getElementById("dur").value}
-        
-        function musiccard (data) {
+
+        function newgetvideo(id) {
+            let vid = id
+            console.log("Loading...")
+            $.ajax({
+                type: "POST",
+                url: "/api/music/get_secure_video",
+                data: {
+                    "url": vid
+                },
+                success: function (response) {
+                    if (response != "This Video is Live Stream") {
+                        console.log("LoadComplete")
+                        console.log(response)
+                        return response
+                    } else {
+                        console.log("Load Failed Reason: This Video is Live Stream")
+                        alert("이 영상을 재생할수 없습니다.\n사유: 이 영상은 실시간 스트리밍입니다.")
+                        return
+                    }
+                }
+            })
+        }
+
+        var aud = document.getElementById('youtube')
+        var dur = document.getElementById('dur')
+
+        function mDur() { document.getElementById("dur").max = document.getElementById("youtube").duration }
+        function mPlay() { document.getElementById("dur").value = document.getElementById("youtube").currentTime }
+        function mSet() { document.getElementById("youtube").currentTime = document.getElementById("dur").value }
+
+        function musiccard(data) {
             let author = data.author
             let authorid = data.authorid
             let thumbnail = data.thumbnail
             let title = data.title
             let vid = data.vid
-            
+
             let card = `<div class="list_content">
                             <div class="list_img">
                                 <img src="${thumbnail}" alt="">
@@ -68,16 +91,16 @@
                                 <p>${author}</p>
                             </div>
                         </div>`
-            
-             $("#list").append(card)
+
+            $("#list").append(card)
         }
-        
+
         function sleep(ms) {
-          const wakeUpTime = Date.now() + ms;
-          while (Date.now() < wakeUpTime) {}
+            const wakeUpTime = Date.now() + ms;
+            while (Date.now() < wakeUpTime) { }
         }
-        
-        function getvideodata(id) {         
+
+        function getvideodata(id) {
             var vid = id
 
             fetch("https://images" + ~~(Math.random() * 33) + "-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=" + encodeURIComponent("https://www.youtube.com/watch?hl=en&v=" + vid)).then(response => {
@@ -100,60 +123,60 @@
                 }
             });
         }
-        
-       async function khit() {
+
+        async function khit() {
             $.ajax({
                 type: "GET",
-                url:"/api/list/k-hit",
+                url: "/api/list/k-hit",
                 success: function (res) {
-                    
+
                     for (let i = 0; i < res.length; i++) {
-                            var vid = res[i]
-                            $.ajax({
-                                type: "POST",
-                                url:"/api/musicinfo",
-                                data:{
-                                    "id":vid
-                                },
-                                success: function (res) {
-                                    musiccard(res)
-                                }
-                            })
+                        var vid = res[i]
+                        $.ajax({
+                            type: "POST",
+                            url: "/api/musicinfo",
+                            data: {
+                                "id": vid
+                            },
+                            success: function (res) {
+                                musiccard(res)
+                            }
+                        })
                         sleep(25)
                     }
                 }
-            })            
+            })
         }
-        
+
         async function ktop100() {
             $.ajax({
                 type: "GET",
-                url:"/api/top100",
+                url: "/api/top100",
                 success: function (res) {
-                    res.forEach(function(id) {
-                             $.ajax({
-                                type: "POST",
-                                url:"/api/musicinfo",
-                                data:{
-                                    "id":id
-                                },
-                                success: function (res) {
-                                    console.log(res)
-                                }
-                            })
+                    res.forEach(function (id) {
+                        $.ajax({
+                            type: "POST",
+                            url: "/api/musicinfo",
+                            data: {
+                                "id": id
+                            },
+                            success: function (res) {
+                                console.log(res)
+                            }
+                        })
                         sleep(25)
                     })
                 }
             })
         }
-        
+
         function getchannelvideos(channel) {
             console.log("Getting All Videos For This Channel...")
             $.ajax({
                 type: "POST",
-                url:"/api/channel/getvideos",
-                data:{
-                    "channel":channel
+                url: "/api/channel/getvideos",
+                data: {
+                    "channel": channel
                 },
                 success: function (response) {
                     console.log(response)
@@ -167,42 +190,39 @@
             //사용불능
             $.ajax({
                 type: "GET",
-                url:"http://ytapi.gitnol.com/get.php?id="+id,
+                url: "http://ytapi.gitnol.com/get.php?id=" + id,
                 success: function (response) {
                     console.log(response)
                 }
             })
         }
 
-        nw=function(a)
+        nw = function (a)
         //사용불능
         {
-          a=a.split("");
-          mw.p7(a,34);mw.qM(a,13);
-          mw.UX(a,3);mw.p7(a,44);
-          mw.qM(a,69);mw.UX(a,2);
-          mw.qM(a,58);mw.p7(a,24);
-          mw.UX(a,1);
-          console.log(a.join(""))
-          return a.join("")
+            a = a.split("");
+            mw.p7(a, 34); mw.qM(a, 13);
+            mw.UX(a, 3); mw.p7(a, 44);
+            mw.qM(a, 69); mw.UX(a, 2);
+            mw.qM(a, 58); mw.p7(a, 24);
+            mw.UX(a, 1);
+            console.log(a.join(""))
+            return a.join("")
         };
 
-        var mw=
-            //사용불능
+        var mw =
+        //사용불능
         {
-            p7:function(a)
-            {
-              a.reverse()
+            p7: function (a) {
+                a.reverse()
             },
-            UX:function(a,b)
-            {
-              a.splice(0,b)
+            UX: function (a, b) {
+                a.splice(0, b)
             },
-            qM:function(a,b)
-            {
-              var c=a[0];
-              a[0]=a[b%a.length];
-              a[b%a.length]=c
+            qM: function (a, b) {
+                var c = a[0];
+                a[0] = a[b % a.length];
+                a[b % a.length] = c
             }
         };
 
@@ -282,29 +302,29 @@
                 type: "POST",
                 url: "/api/music/get_secure_music",
                 data: {
-                    "url" : vid
+                    "url": vid
                 },
                 success: function (response) {
-                    if(response != "This Video is Live Stream"){
-                console.log("LoadComplete")
-                audio_tag.src = response;
-                audio_tag.play()
-                video_tag.src = "https://www.youtube.com/embed/" + vid
-                return response
-            }else{
-                console.log("Load Failed Reason: This Video is Live Stream")
-                alert("이 영상을 재생할수 없습니다.\n사유: 이 영상은 실시간 스트리밍입니다.")
-            }
+                    if (response != "This Video is Live Stream") {
+                        console.log("LoadComplete")
+                        audio_tag.src = response;
+                        audio_tag.play()
+                        video_tag.src = "https://www.youtube.com/embed/" + vid
+                        return response
+                    } else {
+                        console.log("Load Failed Reason: This Video is Live Stream")
+                        alert("이 영상을 재생할수 없습니다.\n사유: 이 영상은 실시간 스트리밍입니다.")
+                    }
                 }
             })
         }
 
         let playingdata
-        function youtube(id) {         
+        function youtube(id) {
             var vid = id,
                 audio_streams = {},
                 audio_tag = document.getElementById('youtube');
-                video_tag = document.getElementById('youtubevideo');
+            video_tag = document.getElementById('youtubevideo');
 
             fetch("https://images" + ~~(Math.random() * 33) + "-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=" + encodeURIComponent("https://www.youtube.com/watch?hl=en&v=" + vid)).then(response => {
                 if (response.ok) {
@@ -379,9 +399,9 @@
                         });
 
                         console.log(audio_streams);
-                        video_tag.src = "https://www.youtube.com/embed/"+vid
-                        audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'];                       
-                        audio_tag.play().catch(function(err){newgetsong(vid)});
+                        video_tag.src = "https://www.youtube.com/embed/" + vid
+                        audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'];
+                        audio_tag.play().catch(function (err) { newgetsong(vid) });
                         requestCC(vid);
                     })
                 }
@@ -394,18 +414,28 @@
 <body>
     <label> Now Playing </label>
     <label id="title"></label>
-    <audio id="youtube" autoplay controls loop preload="metadata" onloadedmetadata="mDur()" ontimeupdate="mPlay()"></audio>
+    <audio id="youtube" autoplay controls loop preload="metadata" onloadedmetadata="mDur()"
+        ontimeupdate="mPlay()"></audio>
     <input id="dur" type="range" name="rng" min="0" step="0.25" value="0" onchange="mSet()" style="width: 248px">
-    <iframe id="youtubevideo" width="560" height="315" src="https://www.youtube.com/embed/r3FFOl-LAM8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-    <input placeholder="검색어를 입력하세요." id="keyword"/>
+    <iframe id="youtubevideo" width="560" height="315" src="https://www.youtube.com/embed/r3FFOl-LAM8"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen></iframe>
+    <input placeholder="검색어를 입력하세요." id="keyword" />
     <button onclick="search()">검색하기</button>
-    <input placeholder="동영상용 아이디를 입력하세요." id="videoid"/>
+    <input placeholder="동영상용 아이디를 입력하세요." id="videoid" />
     <button onclick="youtube(document.getElementById('videoid').value)">재생하기</button>
-    
+
     <ul id="CC">
 
     </ul>
-    
+
+    <video id="a_video" controls>
+        <source id="t_audio" mediagroup="A" src="https://rr1---sn-ab02a0nfpgxapox-jioe.googlevideo.com/videoplayback?expire=1674994500&ei=5A7WY6GIG6GQ1d8Pu7ah6A0&ip=112.152.36.226&id=o-AFak84Xy4C7Lh0nHfuptr1fS-KKKHSQnMTMSDOOa5tXr&itag=251&source=youtube&requiressl=yes&mh=10&mm=31%2C29&mn=sn-ab02a0nfpgxapox-jioe%2Csn-ab02a0nfpgxapox-bh2zs&ms=au%2Crdu&mv=m&mvi=1&pcm2cms=yes&pl=26&initcwndbps=3122500&vprv=1&mime=audio%2Fwebm&gir=yes&clen=4318767&dur=248.781&lmt=1674568998220238&mt=1674972549&fvip=5&keepalive=yes&fexp=24007246&c=ANDROID&txp=5432434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAMjHakew0TQaJdSR-egG9qesOU3_3jAgbUSp3RhlEEFuAiEAtaGpF6cQ8n9SVFJfL7Z4m5KKuuuhxJDxPFQt2La8EuA%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIgYqEVHZhszNR8fxDFJ7p29wz1bSutIXcTJKUmRUHgYSkCIQCihwHQ7ymNjtsy8_a6J7ZL9Wccf4GFzgRbrlB1RTGrEQ%3D%3D" type="video/webm">
+        <source id="t_video" mediagroup="A" src="https://rr1---sn-ab02a0nfpgxapox-jioe.googlevideo.com/videoplayback?expire=1674994500&ei=5A7WY6GIG6GQ1d8Pu7ah6A0&ip=112.152.36.226&id=o-AFak84Xy4C7Lh0nHfuptr1fS-KKKHSQnMTMSDOOa5tXr&itag=137&source=youtube&requiressl=yes&mh=10&mm=31%2C29&mn=sn-ab02a0nfpgxapox-jioe%2Csn-ab02a0nfpgxapox-bh2zs&ms=au%2Crdu&mv=m&mvi=1&pcm2cms=yes&pl=26&initcwndbps=3122500&vprv=1&mime=video%2Fmp4&gir=yes&clen=33630040&dur=248.748&lmt=1674570816799029&mt=1674972549&fvip=5&keepalive=yes&fexp=24007246&c=ANDROID&txp=5432434&sparams=expire%2Cei%2Cip%2Cid%2Citag%2Csource%2Crequiressl%2Cvprv%2Cmime%2Cgir%2Cclen%2Cdur%2Clmt&sig=AOq0QJ8wRgIhAIC-TetQVxJFIXpFTfktWnuQHdIu78wQpHVNesijNyzoAiEA_KUOTnOpVNBOWWZ2eD0-xyMBv65LApD_zujzfZhzUt8%3D&lsparams=mh%2Cmm%2Cmn%2Cms%2Cmv%2Cmvi%2Cpcm2cms%2Cpl%2Cinitcwndbps&lsig=AG3C_xAwRQIgYqEVHZhszNR8fxDFJ7p29wz1bSutIXcTJKUmRUHgYSkCIQCihwHQ7ymNjtsy8_a6J7ZL9Wccf4GFzgRbrlB1RTGrEQ%3D%3D" type="video/mp4">
+
+    </video>
+
     <div id="list">
     </div>
 </body>
@@ -419,13 +449,13 @@
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
-      apiKey: "AIzaSyCAPx_GfSFjGtWo08nuaPEd0RmWL-ar_-Y",
-      authDomain: "dely-music.firebaseapp.com",
-      projectId: "dely-music",
-      storageBucket: "dely-music.appspot.com",
-      messagingSenderId: "247613470910",
-      appId: "1:247613470910:web:d570f395749ef1da95c6ef",
-      measurementId: "G-2J7WX0YP24"
+        apiKey: "AIzaSyCAPx_GfSFjGtWo08nuaPEd0RmWL-ar_-Y",
+        authDomain: "dely-music.firebaseapp.com",
+        projectId: "dely-music",
+        storageBucket: "dely-music.appspot.com",
+        messagingSenderId: "247613470910",
+        appId: "1:247613470910:web:d570f395749ef1da95c6ef",
+        measurementId: "G-2J7WX0YP24"
     };
 
     // Initialize Firebase
