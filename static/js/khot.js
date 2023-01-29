@@ -6,6 +6,10 @@ $(document).ready(function () {
             document.getElementById("l_title").innerText = "🔥 K-힛 리스트: 국내 인기 음악 🔥"
             khit()
         }
+        if (type == "ksurgevid20") {
+            document.getElementById("l_title").innerText = "🔥 국내 인기 급상승 동영상 20 🔥"
+            ksurgevid20()
+        }
     } else {
         window.top.toast("올바르지 않은 접근입니다.\n메인 화면으로 돌아갑니다.")
         window.location.href = "/index"
@@ -30,7 +34,42 @@ async function khit() {
         success: function (res) {
             console.log("thumbnail : ", res[0])
             let cardall = ""
-            for (let i = 1; i < 101; i++) { // 스와이퍼 갯수
+            for (let i = 0; i < 100; i++) { // 스와이퍼 갯수
+                $.ajax({
+                    type: "POST",
+                    url: "/api/musicinfo",
+                    data: {
+                        "id": res[i]
+                    },
+                    success: function (res) {
+                        let card = `<div class="list_content" onclick="play('${res.vid}')">
+                                        <div class="list_img">
+                                            <img src="${res.thumbnail}" alt="">
+                                        </div>
+                                        <div class="list_info">
+                                            <p>${res.title}</p>
+                                            <p>${res.author}</p>
+                                        </div>
+                                    </div>`
+                        
+                        //`<li><img onclick="play('${res.vid}')" id="best_img" src="${res.thumbnail}" alt="${res.title}"></li>`
+                        $(`#l_container`).append(card)
+                    }
+                })
+                sleep(25)
+            }
+        }
+    })
+}
+
+async function ksurgevid20() {
+    $.ajax({
+        type: "GET",
+        url: "/api/surgevideo20",
+        success: function (res) {
+            console.log("thumbnail : ", res[0])
+            let cardall = ""
+            for (let i = 0; i < 20; i++) { // 스와이퍼 갯수
                 $.ajax({
                     type: "POST",
                     url: "/api/musicinfo",

@@ -63,8 +63,7 @@ async function ksurgevid20() {
             let cardall = ""
             for (let i = 0; i < 2; i++) { // 스와이퍼 갯수
                 for (let j = 0; j < 2; j++) { // 스와이퍼 하나당 표시할 갯수                    
-                    var vid = res[(((i+1)*3+1)-(5-(j+1)))]          
-                    console.log(j)      
+                    var vid = res[(((i+1)*2+1)-(4-(j+1)))]            
                     $.ajax({
                         type: "POST",
                         url: "/api/musicinfo",
