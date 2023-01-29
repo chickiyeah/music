@@ -37,6 +37,9 @@ async function khit() {
                         success: function (res) {
                             let card = `<li><img onclick="play('${res.vid}')" id="best_img" src="${res.thumbnail}" alt="${res.title}"></li>`
                             $(`#ktop${i}`).append(card)
+                        },
+                        error: function (err) {
+
                         }
                     })
                 }
@@ -75,12 +78,6 @@ async function ksurgevid20() {
                     })
                 }
                 sleep(25)
-                cardall = `
-                            <ul id="ksurgevid${i}" class="swiper-slide list">
-                            </ul>
-                            `
-                
-                            $("#ksurgevid_swiper").append(cardall)
             }
             
         }

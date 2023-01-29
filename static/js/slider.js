@@ -13,15 +13,11 @@ $(function () {
   });
   // 인기차트 100 스와이퍼
   var bestSwiper = new Swiper(".bestSwiper", {
-    direction:"horizontal",
-    loop: true,
     slidesPerView: 1,
     spaceBetween: 30,
   });
   // movie 20 스와이퍼
   var globalSwiper = new Swiper(".globalSwiper", {
-    direction:"horizontal",
-    loop: true,
     slidesPerView: "auto",
     spaceBetween: 30,
   });
