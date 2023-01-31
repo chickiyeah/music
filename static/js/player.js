@@ -94,7 +94,7 @@ function newgetsong(id) {
     })
 }
 
-let playingdata
+var playingdata = ''
 function youtube(id) {
     var vid = id,
         audio_streams = {},
