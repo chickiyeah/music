@@ -1,8 +1,17 @@
 $(document).ready(function () {
     var detail = window.top.mdetail()
     console.log(detail)
-    var mdur = 0
-    var mcur = 0
-    var mset = 0
+    mDur(window.top.maxtime)
 })
 
+function mDur(dur) {
+    document.getElementById("dur").max = dur
+}
+
+function mPlay(curtime) {
+    document.getElementById("dur").value = curtime
+}
+
+function mSet() {
+    window.top.mSet(document.getElementById("dur").value)
+}

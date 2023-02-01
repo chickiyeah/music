@@ -16,15 +16,15 @@ $(document).ready(function () {
 })
 
 function mDur() {
-    document.getElementById("dur").max = document.getElementById("youtube").duration
+    window.top.mDur(document.getElementById("youtube").duration)
 }
 
 function mPlay() {
-    document.getElementById("dur").value = document.getElementById("youtube").currentTime
+    window.top.mPlay(document.getElementById("youtube").currentTime)
 }
 
-function mSet() {
-    document.getElementById("youtube").currentTime = document.getElementById("dur").value
+function mSet(time) {
+    document.getElementById("youtube").currentTime = time
 }
 
 function search() {

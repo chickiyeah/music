@@ -26,21 +26,22 @@ function play(code) {
 function mdetail() {
     return $('#Player').get(0).contentWindow.playingdata
 }
-
+var maxtime = 0
 function mDur(dur) {
-    if($('#MainDisplay').get(0).contentWindow.location.href.split("/")[1] == "detail") {
-        document.getElementById("dur").max = document.getElementById("youtube").duration
+    if($('#MainDisplay').get(0).contentWindow.location.href.split("/")[3] == "detail") {
+        $('#MainDisplay').get(0).contentWindow.mDur(dur)
     }
+    maxtime = dur
 }
 
 function mPlay(curtime) {
-    if($('#MainDisplay').get(0).contentWindow.location.href.split("/")[1] == "detail") {
-        document.getElementById("dur").value = document.getElementById("youtube").currentTime
+    if($('#MainDisplay').get(0).contentWindow.location.href.split("/")[3] == "detail") {
+        $('#MainDisplay').get(0).contentWindow.mPlay(curtime)
     }
 }
 
 function mSet(Settime) {
-    if($('#MainDisplay').get(0).contentWindow.location.href.split("/")[1] == "detail") {
-        document.getElementById("youtube").currentTime = document.getElementById("dur").value
+    if($('#MainDisplay').get(0).contentWindow.location.href.split("/")[3] == "detail") {
+        $('#Player').get(0).contentWindow.mSet(Settime)
     }
 }
