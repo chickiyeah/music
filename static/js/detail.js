@@ -2,6 +2,8 @@ $(document).ready(function () {
     var detail = window.top.mdetail()
     var thumbnail = detail.videoDetails.thumbnail.thumbnails[4].url
     $("#dthumbnail")[0].src = thumbnail
+    $("#title").text(detail.videoDetails.title)
+    $("#author").text(detail.videoDetails.author)
     requestCC(detail.videoDetails.videoId)
     mDur(window.top.maxtime)
     if(window.top.isplaying()) {
