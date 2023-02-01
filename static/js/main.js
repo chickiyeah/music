@@ -23,6 +23,10 @@ function play(code) {
     toast("서버에 재생을 요청했습니다.\n잠시만 기다려주세요.")
 }
 
+function isplaying() {
+    return $('#Player').get(0).contentWindow.isplaying()
+}
+
 function mdetail() {
     return $('#Player').get(0).contentWindow.playingdata
 }
@@ -32,6 +36,10 @@ function mDur(dur) {
         $('#MainDisplay').get(0).contentWindow.mDur(dur)
     }
     maxtime = dur
+}
+
+function toggleplay() {
+    return $('#Player').get(0).contentWindow.toggleplay()
 }
 
 function mPlay(curtime) {

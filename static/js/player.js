@@ -15,8 +15,23 @@ $(document).ready(function () {
     });
 })
 
+function toggleplay() {
+    var player = document.getElementById("youtube")
+    if(isplaying()) {
+        player.pause()
+        return "paused"
+    }else{
+        player.play().catch(function (err) { return err })
+        return "played"
+    }
+}
+
 function mDur() {
     window.top.mDur(document.getElementById("youtube").duration)
+}
+
+function isplaying() {
+    return !document.getElementById("youtube").paused
 }
 
 function mPlay() {

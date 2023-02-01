@@ -1,7 +1,14 @@
 $(document).ready(function () {
     var detail = window.top.mdetail()
-    console.log(detail)
+    var thumbnail = detail.videoDetails.thumbnail.thumbnails[4].url
+    $("#dthumbnail")[0].src = thumbnail
+    requestCC(detail.videoDetails.videoId)
     mDur(window.top.maxtime)
+    if(window.top.isplaying()) {
+        $("#play").append('<i onclick="toggleplay()" class="fa-solid fa-pause"></i>')
+    }else{
+        $("#play").append('<i onclick="toggleplay()" class="fa-solid fa-play"></i>')
+    }
 })
 
 function mDur(dur) {
@@ -14,4 +21,45 @@ function mPlay(curtime) {
 
 function mSet() {
     window.top.mSet(document.getElementById("dur").value)
+}
+
+function toggleplay() {
+    res = window.top.toggleplay()
+    if(res == "paused") {
+        $("#play").empty()
+        $("#play").append('<i onclick="toggleplay()" class="fa-solid fa-play"></i>')
+    }else{
+        $("#play").empty()
+        $("#play").append('<i onclick="toggleplay()" class="fa-solid fa-pause"></i>')       
+    }
+}
+
+window.onkeydown = (e) => {if(e.code == "Space"){toggleplay()}};
+
+function requestCC(id) {
+    try {
+        $.ajax({
+            type: "POST",
+            url: "/api/lyrcis",
+            data: {
+                "video_id": id
+            },
+            success: function (response) {
+                $("#CC").empty()
+                response.forEach(function (lyrcis) {
+                    let lyr = `<p>${lyrcis.text}</p>`
+                    $("#CC").append(lyr)
+                })
+            },
+            error: function (response) {
+                $("#CC").empty()
+                let lyr = `<p>등록된 가사가 없습니다.</p>`
+                $("#CC").append(lyr)
+            }
+        })
+    } catch (err) {
+        $("#CC").empty()
+        let lyr = `<p>등록된 가사가 없습니다.</p>`
+        $("#CC").append(lyr)
+    }
 }
