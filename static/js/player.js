@@ -26,6 +26,12 @@ function toggleplay() {
     }
 }
 
+function forcepause() {
+    var player = document.getElementById("youtube")
+    player.pause()
+    return "paused"
+}
+
 function mDur() {
     window.top.mDur(document.getElementById("youtube").duration)
 }
