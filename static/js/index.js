@@ -71,7 +71,7 @@ async function ksurgevid20() {
                             "id": vid
                         },
                         success: function (res) {
-                            let card = `<li><img onclick="play('${res.vid}')" id="global_img" src="${res.thumbnail}" alt="${res.title}"></li>`
+                            let card = `<li><img onclick="showmodal('${res.vid}')" id="global_img" src="${res.thumbnail}" alt="${res.title}"></li>`
                             $(`#ksurgevid${i}`).append(card)
                         }
                     })
@@ -120,3 +120,39 @@ function getchannelvideos(channel) {
         }
     })
 }
+
+//비디오 MODAL
+const body = document.querySelector('body');
+const modal = document.querySelector('.modal');
+const btnOpenPopup = document.querySelector('.btn-open-popup');
+
+jQuery.fn.center = function () {
+	this.css('top', Math.max(0,(($(window).height()-$(this).outerHeight())/2) + $(window).scrollTop())+'px');
+	this.css('left', Math.max(0,(($(window).width()-$(this).outerWidth())/2) + $(window).scrollLeft())+'px');
+	return this;
+}
+
+function showmodal() {
+    console.log(modal)
+    window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+    modal.classList.toggle('show');
+    //document.getElementById("k_swiper").style.visibility="hidden";
+    //document.getElementById("g_swiper").style.visibility="hidden";
+    if (modal.classList.contains('show')) {
+        body.style.overflow = 'hidden';
+
+    }
+    //$("modal").center()
+};
+
+modal.addEventListener('click', (event) => {
+  if (event.target === modal) {
+    modal.classList.toggle('show');
+    //document.getElementById("k_swiper").style.visibility="visible";
+    //document.getElementById("g_swiper").style.visibility="visible";
+    if (!modal.classList.contains('show')) {
+      body.style.overflow = 'auto';
+
+    }
+  }
+});

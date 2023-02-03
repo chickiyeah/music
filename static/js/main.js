@@ -53,3 +53,27 @@ function mSet(Settime) {
         $('#Player').get(0).contentWindow.mSet(Settime)
     }
 }
+
+function newgetvideo(id) {
+    let audio_tag = document.getElementById('youtube');
+    let vid = id
+    console.log("Loading...")
+    $.ajax({
+        type: "POST",
+        url: "/api/music/get_secure_video",
+        data: {
+            "url": vid
+        },
+        success: function (response) {
+            if(response != "This Video is Live Stream"){
+                console.log("LoadComplete")
+                console.log(response);
+                return response
+            }else{
+                console.log("Load Failed Reason: This Video is Live Stream")
+                alert("이 영상을 재생할수 없습니다.\n사유: 이 영상은 실시간 스트리밍입니다.")
+                return
+            }
+        }
+    })
+}
