@@ -27,7 +27,7 @@ async function khit() {
             let cardall = ""
             for (let i = 0; i < 2; i++) { // 스와이퍼 갯수
                 for (let j = 0; j < 3; j++) { // 스와이퍼 하나당 표시할 갯수                    
-                    var vid = res[(((i+1)*3+1)-(5-(j+1)))]                
+                    var vid = res[(((i + 1) * 3 + 1) - (5 - (j + 1)))]
                     $.ajax({
                         type: "POST",
                         url: "/api/musicinfo",
@@ -48,7 +48,7 @@ async function khit() {
                             <ul id="ktop${i}" class="swiper-slide list">
                             </ul>
                             `
-                
+
             }
             $("#k-hit_swiper").append(cardall)
         }
@@ -63,7 +63,7 @@ async function ksurgevid20() {
             let cardall = ""
             for (let i = 0; i < 2; i++) { // 스와이퍼 갯수
                 for (let j = 0; j < 2; j++) { // 스와이퍼 하나당 표시할 갯수                    
-                    var vid = res[(((i+1)*2+1)-(4-(j+1)))]            
+                    var vid = res[(((i + 1) * 2 + 1) - (4 - (j + 1)))]
                     $.ajax({
                         type: "POST",
                         url: "/api/musicinfo",
@@ -78,7 +78,7 @@ async function ksurgevid20() {
                 }
                 sleep(25)
             }
-            
+
         }
     })
 }
@@ -121,18 +121,64 @@ function getchannelvideos(channel) {
     })
 }
 
+function newgetvideo(id) {
+    let audio_tag = document.getElementById('youtube');
+    let vid = id
+    console.log("Loading...")
+    $.ajax({
+        type: "POST",
+        url: "/api/music/get_secure_video",
+        data: {
+            "url": vid
+        },
+        success: function (response) {
+            if (response != "This Video is Live Stream") {
+                console.log("LoadComplete")
+                console.log(response);
+                document.getElementById("i_mv_player").src = response
+
+                fetch("https://images" + ~~(Math.random() * 33) + "-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=" + encodeURIComponent("https://www.youtube.com/watch?hl=en&v=" + vid)).then(response => {
+                    if (response.ok) {
+                        response.text().then(data => {
+
+                            var regex = /(?:ytplayer\.config\s*=\s*|ytInitialPlayerResponse\s?=\s?)(.+?)(?:;var|;\(function|\)?;\s*if|;\s*if|;\s*ytplayer\.|;\s*<\/script)/gmsu;
+
+                            data = data.split('window.getPageData')[0];
+                            data = data.replace('ytInitialPlayerResponse = null', '');
+                            data = data.replace('ytInitialPlayerResponse=window.ytInitialPlayerResponse', '');
+                            data = data.replace('ytplayer.config={args:{raw_player_response:ytInitialPlayerResponse}};', '');
+
+
+                            var matches = regex.exec(data);
+                            var data = matches && matches.length > 1 ? JSON.parse(matches[1]) : false;
+
+                            $("#title").text(data.videoDetails.title)
+                            $("#author").text(data.videoDetails.author)
+                        })
+                    }
+                })
+                return response
+            } else {
+                console.log("Load Failed Reason: This Video is Live Stream")
+                alert("이 영상을 재생할수 없습니다.\n사유: 이 영상은 실시간 스트리밍입니다.")
+                return
+            }
+        }
+    })
+}
+
 //비디오 MODAL
 const body = document.querySelector('body');
 const modal = document.querySelector('.modal');
 const btnOpenPopup = document.querySelector('.btn-open-popup');
 
 jQuery.fn.center = function () {
-	this.css('top', Math.max(0,(($(window).height()-$(this).outerHeight())/2) + $(window).scrollTop())+'px');
-	this.css('left', Math.max(0,(($(window).width()-$(this).outerWidth())/2) + $(window).scrollLeft())+'px');
-	return this;
+    this.css('top', Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + $(window).scrollTop()) + 'px');
+    this.css('left', Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) + $(window).scrollLeft()) + 'px');
+    return this;
 }
 
-function showmodal() {
+function showmodal(id) {
     console.log(modal)
     window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
     modal.classList.toggle('show');
@@ -140,19 +186,20 @@ function showmodal() {
     //document.getElementById("g_swiper").style.visibility="hidden";
     if (modal.classList.contains('show')) {
         body.style.overflow = 'hidden';
-
     }
-    //$("modal").center()
+    let res = newgetvideo(id)
+    console.log(document.getElementById("i_mv_player").src)
+    
 };
 
 modal.addEventListener('click', (event) => {
-  if (event.target === modal) {
-    modal.classList.toggle('show');
-    //document.getElementById("k_swiper").style.visibility="visible";
-    //document.getElementById("g_swiper").style.visibility="visible";
-    if (!modal.classList.contains('show')) {
-      body.style.overflow = 'auto';
+    if (event.target === modal) {
+        modal.classList.toggle('show');
+        //document.getElementById("k_swiper").style.visibility="visible";
+        //document.getElementById("g_swiper").style.visibility="visible";
+        if (!modal.classList.contains('show')) {
+            body.style.overflow = 'auto';
 
+        }
     }
-  }
 });
