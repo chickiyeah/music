@@ -42,6 +42,10 @@ function toggleplay() {
     return $('#Player').get(0).contentWindow.toggleplay()
 }
 
+function forcepause() {
+    return $('#Player').get(0).contentWindow.forcepause()
+}
+
 function mPlay(curtime) {
     if($('#MainDisplay').get(0).contentWindow.location.href.split("/")[3] == "detail") {
         $('#MainDisplay').get(0).contentWindow.mPlay(curtime)

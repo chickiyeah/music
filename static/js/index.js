@@ -186,6 +186,7 @@ function showmodal(id) {
     //document.getElementById("g_swiper").style.visibility="hidden";
     if (modal.classList.contains('show')) {
         body.style.overflow = 'hidden';
+        window.top.forcepause()
     }
     let res = newgetvideo(id)
     console.log(document.getElementById("i_mv_player").src)
@@ -199,7 +200,8 @@ modal.addEventListener('click', (event) => {
         //document.getElementById("g_swiper").style.visibility="visible";
         if (!modal.classList.contains('show')) {
             body.style.overflow = 'auto';
-
+            document.getElementById("i_mv_player").pause()
+            window.top.toggleplay()
         }
     }
 });
