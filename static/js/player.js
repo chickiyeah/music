@@ -90,7 +90,7 @@ function requestCC(id) {
     }
 }
 
-function newgetsong(id) {
+async function newgetsong(id) {
     let audio_tag = document.getElementById('youtube');
     let vid = id
     console.log("Loading...")
@@ -116,7 +116,7 @@ function newgetsong(id) {
 }
 
 var playingdata = ''
-function youtube(id) {
+async function youtube(id) {
     var vid = id,
         audio_streams = {},
         audio_tag = document.getElementById('youtube');

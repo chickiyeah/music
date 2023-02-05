@@ -462,6 +462,16 @@ def k_hit():
     
     return pl_urls
 
+#재생목록 (글로벌 인기곡 탑100)
+@app.route('/api/list/global_top_100')
+def global_top_100():
+
+    playlist = ['https://www.youtube.com/playlist?list=PL4fGSI1pDJn6puJdseH2Rt9sMvt9E2M4i']
+
+    pl_urls = get_playlist(playlist)
+
+    return pl_urls
+
 #가사 불러오는 백엔드
 @app.route('/api/lyrcis', methods=['POST'])
 def get_lyrcis():

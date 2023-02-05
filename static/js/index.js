@@ -16,6 +16,7 @@ function play(code) {
 $(document).ready(function () {
     khit()
     ksurgevid20()
+    global_top_100()
 })
 
 
@@ -105,7 +106,40 @@ async function ktop100() {
     })
 }
 
-function getchannelvideos(channel) {
+async function global_top_100() {
+    $.ajax({
+        type: "GET",
+        url: "/api/list/global_top_100",
+        success: function (res) {
+            for (let i = 0; i < 6; i++) {
+                console.log(i)
+                $.ajax({
+                    type: "POST",
+                    url: "/api/musicinfo",
+                    data: {
+                        "id": res[i]
+                    },
+                    success: function (res) {
+                        let card = `<li>
+                                        <div class="pop_img">
+                                            <img style="width:49px" src="${res.thumbnail}" alt="외국 인기차트 이미지">
+                                        </div>
+                                        <div class="pop_txt">
+                                            <p style="font-size:13px">${res.title}</p>
+                                            <p style="font-size:13px; color:orange">${res.author}</p>
+                                        </div>
+                                    </li>`
+                        
+                        $("#more_list").append(card)
+                    }
+                })
+                sleep(25)               
+            }
+        }
+    })
+}
+
+async function getchannelvideos(channel) {
     console.log("Getting All Videos For This Channel...")
     $.ajax({
         type: "POST",

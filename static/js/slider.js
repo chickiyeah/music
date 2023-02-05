@@ -41,7 +41,6 @@ $(function () {
   $("#more_list>li").slice(0, 3).show();
   let leng = $("#more_list>li").length;
   let isBool = false;
-  console.log(leng);
   $(".more")
     .css("cursor", "pointer")
     .click(function (e) {
@@ -50,13 +49,10 @@ $(function () {
       if (isBool === false) {
         let leng2 = $("#more_list>li:hidden").length;
         $("#more_list>li:hidden").slice(0, 10).show();
-        console.log(leng2);
         $(".more").text("close▲");
         return (isBool = true);
       } else {
-        console.log(isBool);
         let leng3 = $("#more_list>li").slice(3, 6).hide();
-        console.log(leng3);
         $(".more").text("more▼");
         return (isBool = false);
       }
