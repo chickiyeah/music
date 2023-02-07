@@ -10,6 +10,10 @@ $(document).ready(function () {
             document.getElementById("l_title").innerText = "🔥 국내 인기 급상승 동영상 20 🔥"
             ksurgevid20()
         }
+        if (type == "g_top_100") {
+            document.getElementById("l_title").innerText = "🔥 글로벌 인기 음악 탑 100 🔥"
+            global_top_100()
+        }
     } else {
         window.top.toast("올바르지 않은 접근입니다.\n메인 화면으로 돌아갑니다.")
         window.location.href = "/index"
@@ -96,6 +100,40 @@ async function ksurgevid20() {
         }
     })
 }
+
+async function global_top_100() {
+    $.ajax({
+        type: "GET",
+        url: "/api/list/global_top_100",
+        success: function (res) {
+            for (let i = 0; i < 100; i++) {
+                console.log(i)
+                $.ajax({
+                    type: "POST",
+                    url: "/api/musicinfo",
+                    data: {
+                        "id": res[i]
+                    },
+                    success: function (res) {
+                        let card = `<div class="list_content" onclick="play('${res.vid}')">
+                                        <div class="list_img">
+                                            <img src="${res.thumbnail}" alt="">
+                                        </div>
+                                        <div class="list_info">
+                                            <p>${res.title}</p>
+                                            <p>${res.author}</p>
+                                        </div>
+                                    </div>`
+                        
+                        $("#l_container").append(card)
+                    }
+                })
+                sleep(25)               
+            }
+        }
+    })
+}
+
 
 function newgetvideo(id) {
     let audio_tag = document.getElementById('youtube');

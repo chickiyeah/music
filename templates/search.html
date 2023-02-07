@@ -10,8 +10,14 @@
     <link rel="stylesheet" href="../static/css/reset.css">
     <link rel="stylesheet" href="../static/css/search.css">
 
+    <!-- 제이쿼리 CDN -->
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+
     <!-- 외부 아이콘 -->
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css">
+
+    <script defer src="../static/js/search.js"></script>
 
     <title>DELI</title>
 </head>
@@ -41,7 +47,7 @@
             <div class="info_wrap">
                 <div class="search_input">
                     <input id="search-address" type="text" placeholder="검색하기" name="text">
-                    <button type="submit">검색</button>
+                    <button onclick="search(document.getElementById('search-address').value)" type="submit">검색</button>
                 </div>
             </div>
         </div>

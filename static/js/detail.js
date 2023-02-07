@@ -1,6 +1,8 @@
 $(document).ready(function () {
     var detail = window.top.mdetail()
-    var thumbnail = detail.videoDetails.thumbnail.thumbnails[4].url
+    var thumbnailsize =  detail.videoDetails.thumbnail.thumbnails.length
+    console.log(thumbnailsize)
+    var thumbnail = detail.videoDetails.thumbnail.thumbnails[thumbnailsize-1].url
     $("#dthumbnail")[0].src = thumbnail
     $("#title").text(detail.videoDetails.title)
     $("#author").text(detail.videoDetails.author)
