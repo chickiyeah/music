@@ -38,6 +38,10 @@
     width: 290px;
 }
 
+.khot_wrap {
+    padding-top: 23vw;
+    margin-bottom: 10vh;
+}
 
 .khot_container {
     display: flex;
@@ -70,4 +74,30 @@
     border-radius: 20px;
     z-index: -1;
     opacity: 30%;
+}
+
+.list_content .list_img img {
+    margin-right: 5px;
+    border-radius: 20px;
+    width: 139px;
+    justify-content: left;
+}
+
+.list_info {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+    justify-content: center;
+    margin-left: 6px;
+}
+
+.list_info p:nth-child(1) {
+    font-size: 15px;
+    margin-bottom: 3px;
+}
+
+.list_info p:nth-child(2) {
+    font-size: 12px;
+    margin-top: 3px;
+    opacity: 80%;
 }
