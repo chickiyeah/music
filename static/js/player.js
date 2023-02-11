@@ -48,6 +48,7 @@ function mSet(time) {
     document.getElementById("youtube").currentTime = time
 }
 
+/*Deprecated*/
 function search() {
     let keyword = document.getElementById("keyword").value
     $.ajax({
@@ -137,7 +138,6 @@ async function youtube(id) {
                 var data = matches && matches.length > 1 ? JSON.parse(matches[1]) : false;
 
                 playingdata = data;
-                console.log(playingdata)
                 if (!playingdata.videoDetails.title) {
                     alert("해당 아이디의 유튜브 영상은 존재하지 않습니다.\n유튜브 아이디를 확인해주세요.")
                 }
@@ -189,7 +189,6 @@ async function youtube(id) {
                     if (quality) audio_streams[quality] = stream.url;
                 });
 
-                console.log(audio_streams);
                 audio_tag.src = audio_streams['256kbps'] || audio_streams['128kbps'] || audio_streams['48kbps'];
                 audio_tag.play().catch(function (err) { newgetsong(vid) });
                 requestCC(vid);
