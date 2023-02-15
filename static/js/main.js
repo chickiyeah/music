@@ -46,6 +46,14 @@ function forcepause() {
     return $('#Player').get(0).contentWindow.forcepause()
 }
 
+function getvol() {
+    return $('#Player').get(0).contentWindow.getvol()
+}
+
+function volSet(nvol) {
+    return $('#Player').get(0).contentWindow.setvol(nvol)
+}
+
 function mPlay(curtime) {
     if($('#MainDisplay').get(0).contentWindow.location.href.split("/")[3] == "detail") {
         $('#MainDisplay').get(0).contentWindow.mPlay(curtime)

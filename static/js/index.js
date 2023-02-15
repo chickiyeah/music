@@ -223,8 +223,7 @@ function showmodal(id) {
         window.top.forcepause()
     }
     let res = newgetvideo(id)
-    console.log(document.getElementById("i_mv_player").src)
-    
+    console.log(document.getElementById("i_mv_player").src)  
 };
 
 modal.addEventListener('click', (event) => {

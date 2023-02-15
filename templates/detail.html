@@ -61,11 +61,18 @@
                     <button id="prev"><i class="fa-sharp fa-solid fa-backward"></i></button>
                     <button id="play"></button>
                     <button id="next"><i class="fa-sharp fa-solid fa-forward"></i></button>
+                    <button onclick="showvol()" id="volume"><i class="fa-sharp fa-solid xi-volume-up"></i></button>
                 </div>
 
-                <div class="volumebar" id="volumebar">
-                    <input id="dur" type="range" name="rng" min="0" step="0.1" value="0.5" max="1" onchange="mSet()" style="width: 124px">
+
+                <div class="volume">
+                    <div class="volume_body">
+                        <div class="volumebar" id="volumebar">
+                            <input id="vol" type="range" name="rng" min="0" step="0.1" value="0.5" max="1" onchange="volSet()" style="width: 110px">
+                        </div>
+                    </div>        
                 </div>
+
                 <div id="CC" class="music_txt">
 
                 </div>

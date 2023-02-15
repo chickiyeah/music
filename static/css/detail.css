@@ -65,9 +65,28 @@
     opacity: 80%;
 }
 
+.volume {
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    display: none;
+
+    z-index: 10000;
+
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.volume.show {
+    display: block;
+}
+
 .volumebar {
     background-color: white;
-    transform: rotate(270deg);
+    /*transform: rotate(270deg);*/
     margin-left: 15rem;
     padding: 1rem;
     top: 26rem;
@@ -75,3 +94,4 @@
     border-radius: 1rem;
     z-index: 9999;
 }
+

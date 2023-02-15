@@ -40,6 +40,15 @@ function isplaying() {
     return !document.getElementById("youtube").paused
 }
 
+function getvol() {
+    return document.getElementById("youtube").volume
+}
+
+function setvol(nvol) {
+    document.getElementById("youtube").volume = nvol
+    return document.getElementById("youtube").volume
+}
+
 function mPlay() {
     window.top.mPlay(document.getElementById("youtube").currentTime)
 }

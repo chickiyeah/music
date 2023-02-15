@@ -27,6 +27,10 @@ function mSet() {
     window.top.mSet(document.getElementById("dur").value)
 }
 
+function volSet() {
+    window.top.volSet(document.getElementById("vol").value)
+}
+
 function toggleplay() {
     res = window.top.toggleplay()
     if(res == "paused") {
@@ -67,3 +71,27 @@ function requestCC(id) {
         $("#CC").append(lyr)
     }
 }
+
+
+const body = document.querySelector('body');
+const vol = document.querySelector(".volume")
+function showvol() {
+    window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
+    vol.classList.toggle('show');
+
+    if (vol.classList.contains('show')) {
+        body.style.overflow = 'hidden';
+    }
+
+};
+
+vol.addEventListener('click', (event) => {
+    if (event.target === vol) {
+        vol.classList.toggle('show');
+        //document.getElementById("k_swiper").style.visibility="visible";
+        //document.getElementById("g_swiper").style.visibility="visible";
+        if (!vol.classList.contains('show')) {
+            body.style.overflow = 'auto';
+        }
+    }
+});
