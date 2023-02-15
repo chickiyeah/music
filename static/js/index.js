@@ -171,24 +171,15 @@ function newgetvideo(id) {
                 console.log(response);
                 document.getElementById("i_mv_player").src = response
 
-                fetch("https://images" + ~~(Math.random() * 33) + "-focus-opensocial.googleusercontent.com/gadgets/proxy?container=none&url=" + encodeURIComponent("https://www.youtube.com/watch?hl=en&v=" + vid)).then(response => {
-                    if (response.ok) {
-                        response.text().then(data => {
-
-                            var regex = /(?:ytplayer\.config\s*=\s*|ytInitialPlayerResponse\s?=\s?)(.+?)(?:;var|;\(function|\)?;\s*if|;\s*if|;\s*ytplayer\.|;\s*<\/script)/gmsu;
-
-                            data = data.split('window.getPageData')[0];
-                            data = data.replace('ytInitialPlayerResponse = null', '');
-                            data = data.replace('ytInitialPlayerResponse=window.ytInitialPlayerResponse', '');
-                            data = data.replace('ytplayer.config={args:{raw_player_response:ytInitialPlayerResponse}};', '');
-
-
-                            var matches = regex.exec(data);
-                            var data = matches && matches.length > 1 ? JSON.parse(matches[1]) : false;
-
-                            $("#title").text(data.videoDetails.title)
-                            $("#author").text(data.videoDetails.author)
-                        })
+                $.ajax({
+                    type: "POST",
+                    url: "/api/musicinfo",
+                    data: {
+                        "id": vid
+                    },
+                    success: function (res) {
+                        $("#title").text(res.title)
+                        $("#author").text(res.author)
                     }
                 })
                 return response
