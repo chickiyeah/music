@@ -112,7 +112,6 @@ async function global_top_100() {
         url: "/api/list/global_top_100",
         success: function (res) {
             for (let i = 0; i < 6; i++) {
-                console.log(i)
                 $.ajax({
                     type: "POST",
                     url: "/api/musicinfo",
@@ -148,7 +147,6 @@ async function getchannelvideos(channel) {
             "channel": channel
         },
         success: function (response) {
-            console.log(response)
             console.log("Successfully All Videos For This Channel")
             return response
         }
@@ -168,7 +166,6 @@ function newgetvideo(id) {
         success: function (response) {
             if (response != "This Video is Live Stream") {
                 console.log("LoadComplete")
-                console.log(response);
                 document.getElementById("i_mv_player").src = response
 
                 $.ajax({
@@ -204,7 +201,6 @@ jQuery.fn.center = function () {
 }
 
 function showmodal(id) {
-    console.log(modal)
     window.scrollTo({ left: 0, top: 0, behavior: "smooth" });
     modal.classList.toggle('show');
     //document.getElementById("k_swiper").style.visibility="hidden";
@@ -214,7 +210,6 @@ function showmodal(id) {
         window.top.forcepause()
     }
     let res = newgetvideo(id)
-    console.log(document.getElementById("i_mv_player").src)  
 };
 
 modal.addEventListener('click', (event) => {

@@ -1,14 +1,13 @@
 from flask import Flask, Blueprint, request
 
 import youtube_transcript_api
-import pytube
+from pytube.extract import LiveStreamError
 from pytube import YouTube
 from youtube_transcript_api import YouTubeTranscriptApi
 from pytube import Playlist
-import uyts
 import requests
+import scrapetube
 
-from flask_restx import Api, Resource
 
 api = Blueprint('deliapi', __name__)
 
