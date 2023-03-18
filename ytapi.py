@@ -187,6 +187,7 @@ def getsong():
 #노래 검색
 @api.route('/search', methods=['POST'])
 def search_video():
+    d = "d"
 
     search_keyword = request.form['keyword']
 
